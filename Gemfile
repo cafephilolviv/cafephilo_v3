@@ -35,6 +35,11 @@ group :development do
   gem 'guard-spork', '~> 2.1'
   gem 'guard-bundler', require: false
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
+  gem 'rubycritic'
+end
+
+group :test do
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
