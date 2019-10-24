@@ -1,0 +1,18 @@
+<%= form_with model: event, url: admin_events_path do |f| %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %>
+    <%= f.rich_text_area :description %>
+  </p>
+  <p>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+

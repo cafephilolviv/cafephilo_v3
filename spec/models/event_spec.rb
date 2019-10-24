@@ -22,13 +22,13 @@ RSpec.describe Event, type: :model do
 
     it { expect(event.title).to eq('First event') }
   end
-  
+
   context 'Event has description' do
     event = Event.create(title: 'First event',
                          description: 'Test',
                          date: '11.01.2011')
 
-    it { expect(event.description).to eq('Test') }
+    it { expect(event.description.body.html_safe).to include('Test') }
   end
 
   context 'Validations' do
@@ -45,14 +45,14 @@ RSpec.describe Event, type: :model do
     it 'cant create Event without description' do
       event = Event.create(title: 'First event',
                            date: '11.01.2011')
-      
+
       expect(event).to_not be_valid
     end
 
     it 'cant create Event without date' do
       event = Event.create(title: 'First event',
                            description: 'Test')
-  
+
       expect(event).to_not be_valid
     end
   end

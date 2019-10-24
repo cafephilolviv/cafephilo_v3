@@ -13,11 +13,13 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
 
 group :development, :test do
   gem 'dotenv-rails'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 3.8'
+  gem 'rspec-rails', git: 'https://github.com/rspec/rspec-rails', branch: 'v4.0.0.beta3'
 end
 
 group :development do
@@ -35,6 +37,7 @@ group :development do
   gem 'guard-bundler', require: false
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
   gem 'rubycritic'
+  gem 'annotate'
 end
 
 group :test do
