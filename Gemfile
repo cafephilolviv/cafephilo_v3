@@ -31,6 +31,7 @@ group :development do
   gem 'pry-doc'
   gem 'rubocop'
   gem 'rubocop-rails'
+  gem 'rubocop-rspec'
   gem 'guard'
   gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
   gem 'guard-spork', '~> 2.1'

@@ -1,0 +1,37 @@
+image: ruby:2.6.5
+
+cache:
+  paths:
+    - vendor/ruby
+
+services:
+  - postgres:latest
+
+variables:
+  DATABASE_TEST_NAME: test_db
+  DATABASE_TEST_USER: runner
+  DATABASE_TEST_PASSWORD: ""
+
+stages:
+  - linters
+  - test
+
+rubocop:
+  stage: linters
+  script:
+    - gem install rubocop
+    - bundle exec rubocop -a app/ lib/
+  allow_failure: true
+
+rspec:
+  stage: test
+  script:
+    - apt-get update -qq && apt-get install -yqq nodejs
+    - gem install bundler  --no-ri --no-rdoc
+    - bundle install -j $(nproc) --path vendor
+    - RAILS_ENV=test bundle exec rake db:create
+    - RAILS_ENV=test bundle exec rake db:migrate
+    - RAILS_ENV=test bundle exec rspec
+  artifacts:
+    paths:
+      - coverage/
