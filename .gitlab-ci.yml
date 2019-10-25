@@ -20,7 +20,7 @@ rubocop:
   stage: linters
   script:
     - gem install rubocop
-    - bundle exec rubocop -a app/ lib/
+    - rubocop -a app/ lib/
   allow_failure: true
 
 rspec:
