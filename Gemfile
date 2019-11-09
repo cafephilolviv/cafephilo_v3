@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.6.5"
+ruby "2.6.3"
 
 
 gem "rails", "~> 6.0.0"
@@ -20,6 +20,7 @@ gem "image_processing", "~> 1.2"
 gem "slim"
 gem "kaminari"
 gem "sentry-raven"
+gem 'jquery-rails'
 
 group :development, :test do
   gem "dotenv-rails"
@@ -47,6 +48,7 @@ group :development do
   gem "guard-livereload", "~> 2.5", ">= 2.5.2"
   gem "rubycritic"
   gem "annotate"
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 end
 
 group :test do
