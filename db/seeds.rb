@@ -13,8 +13,12 @@ IMG_COUNT = 7
 20.times do |i|
   img_index = i % IMG_COUNT
   # ====== Events ======= #
-  event = Event.create!(title: Faker::Lorem.sentence(word_count: 5, supplemental: true, random_words_to_add: 5),
-                        description: Faker::Lorem.paragraph(sentence_count: 15, supplemental: true, random_sentences_to_add: 10),
+  event = Event.create!(title: Faker::Lorem.sentence(word_count: 5,
+                                                     supplemental: true,
+                                                     random_words_to_add: 5),
+                        description: Faker::Lorem.paragraph(sentence_count: 15,
+                                                            supplemental: true,
+                                                            random_sentences_to_add: 10),
                         date: Faker::Date.between(from: 5.years.ago, to: Date.today))
 
   event.images.attach(io: File.open("#{Rails.root}/tmp/posters/#{img_index}.jpg"),
