@@ -10,6 +10,31 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+
+@charset 'utf-8';
+
+// Vendor
+@import "vendor/__vendor-dir";
+
+// Abstracts
+@import "abstracts/__abstracts-dir";
+
+// Base Styles
+@import "base/__base-dir";
+
+// Components
+@import "components/__components-dir";
+
+// Layouts
+@import "layouts/__layouts-dir";
+
+// Pages
+@import "pages/__pages-dir";
+
+// Other
+@import "actiontext";
+@import "admin";
+
+// Media
+@import "responsive/__responsive-dir";
