@@ -15,7 +15,7 @@
 }
 
 .events-row {
-  padding: 40px 0;
+  padding: size(40) 0;
 
   &:nth-child(even) {
     .events-row__image-wrapper {
@@ -67,7 +67,7 @@
   &__info {
     height: size(316);
     overflow: hidden;
-    padding-top: 100px;
+    padding-top: size(100);
   }
 
   &__desc {
@@ -79,8 +79,8 @@
 .event-date {
   background-color: $grey_line;
   color: $white;
-  height: 100px;
-  width: 100px;
+  height: size(100);
+  width: size(100);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -88,12 +88,12 @@
   @include radius(50%);
 
   &__day {
-    font-size: 40px;
+    font-size: size(40);
     display: block;
   }
 
   &__month {
-    font-size: 20px;
+    font-size: size(20);
     text-transform: lowercase;
   }
 }
