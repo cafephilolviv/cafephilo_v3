@@ -19,6 +19,7 @@ gem "mini_magick"
 gem "image_processing", "~> 1.2"
 gem 'haml-rails', '~> 2.0'
 gem 'jquery-rails'
+gem 'slim'
 
 group :development, :test do
   gem "dotenv-rails"

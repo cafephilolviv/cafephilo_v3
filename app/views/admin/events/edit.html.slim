@@ -1,0 +1,12 @@
+= form_with model: [:admin, event] do |f|
+  p
+    = f.label :title
+    = f.text_field :title
+  p
+    = f.label :description
+    = f.rich_text_area :description
+  p
+    = f.label :date
+    = f.date_field :date
+  p
+    = f.submit
