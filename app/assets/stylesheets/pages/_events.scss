@@ -19,7 +19,7 @@
 
   &:nth-child(even) {
     .events-row__image-wrapper {
-      order: 1;
+      @include flex_order(1);
 
       .event-date {
         left: -51px;
@@ -65,14 +65,67 @@
   }
 
   &__info {
-    height: size(316);
-    overflow: hidden;
     padding-top: size(100);
   }
 
   &__desc {
     margin-top: 1em;
     line-height: 1.3;
+    height: 8em;
+    overflow: hidden;
+  }
+
+  &__read-more {
+    background-color: transparent;
+    border: none;
+    padding-left: size(58);
+    position: relative;
+    line-height: size(46);
+
+    .arrow {
+      width: size(46);
+      height: size(46);
+      background-color: $grey_arrow;
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include radius(50%);
+
+      &__line {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: size(16);
+        background-color: $white;
+        top: 2px;
+        bottom: 0;
+        margin: auto;
+
+        &_left {
+          left: 10px;
+          @include rotate(45);
+        }
+
+        &_right {
+          right: 10px;
+          @include rotate(-45);
+        }
+      }
+    }
+
+    &.active {
+      .arrow {
+        &__line {
+          &_left {
+            @include rotate(-45);
+          }
+
+          &_right {
+            @include rotate(45);
+          }
+        }
+      }
+    }
   }
 }
 
