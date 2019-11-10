@@ -16,11 +16,12 @@ div.container.events-list
             h3 
               = event.title
             h4 
-              = event.date.strftime("%d-%m-%y")
+              = event.date.strftime("%d.%m.%y")
             h4 Спікер: Жан-Поль Сартр
             div.events-row__desc
-              = event.description.body.html_safe
-            button.events-row__read-more
+              div.events-row__desc-inner
+                = event.description.body.html_safe
+            button.events-row__read-more.read-more
               p.arrow
                 span.arrow__line.arrow__line_left
                 span.arrow__line.arrow__line_right
