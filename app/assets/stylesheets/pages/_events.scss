@@ -57,11 +57,17 @@
   }
 
   &__image {
-    height: 516px;
+    height: size(516);
 
     img {
       height: 100%;
     }
+  }
+
+  &__info {
+    height: size(316);
+    overflow: hidden;
+    padding-top: 100px;
   }
 
   &__desc {

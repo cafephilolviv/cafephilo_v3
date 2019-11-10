@@ -212,7 +212,9 @@ $error_message_block_color: #FF0000;
     -webkit-box-shadow: inset $top $left $blur $spread $color;
     -moz-box-shadow: inset $top $left $blur $spread $color;
     box-shadow: inset $top $left $blur $spread $color;
-  } @else {
+  }
+
+  @else {
     -webkit-box-shadow: $top $left $blur $spread $color;
     -moz-box-shadow: $top $left $blur $spread $color;
     box-shadow: $top $left $blur $spread $color;
@@ -220,9 +222,9 @@ $error_message_block_color: #FF0000;
 }
 
 /*===========================================
-   width/height func
+   px to rem func
  ===========================================*/
 
 @function size($px-size, $current-size:16) {
-  @return $px-size/$current-size + em;
+  @return $px-size/$current-size+rem;
 }
