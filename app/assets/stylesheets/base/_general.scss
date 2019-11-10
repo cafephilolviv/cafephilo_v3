@@ -1,7 +1,37 @@
 body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: $text-grey;
+
   &.no-scroll {
     overflow: hidden;
   }
+}
+
+h1,
+h2,
+h3 {
+  margin: .3em 0 .7em 0;
+}
+
+h1 {
+  font-size: 70px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-weight: 100;
+  margin-bottom: 5px;
 }
 
 .boby-inner {
@@ -31,6 +61,7 @@ body {
   padding: .3em;
   border-radius: 3px;
   font-size: 26px;
+
   i {
     width: 1em;
     height: 1em;
@@ -40,7 +71,7 @@ body {
 
 img {
   max-width: 100%;
-  max-height: 100px;
+  max-height: 100%;
 }
 
 button {

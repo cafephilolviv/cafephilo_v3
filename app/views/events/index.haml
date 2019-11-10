@@ -1,0 +1,14 @@
+%div.container.events-list
+  - if events.size > 0
+    - events.each do |event|
+      %div.row.events-row
+        %div.col-12.col-sm-6.events-row__image-wrapper
+          - if event.images.attached?
+            %p.events-row__image
+              = image_tag event.images.first
+        %div.col-12.col-md-6.events-row__info-wrapper.d-flex.flex-column.justify-content-center
+          %div.events-row__info
+            %h3 #{event.title}
+            %h4 #{event.date.strftime("%d-%m-%y")}
+            %h4 Спікер: Жан-Поль Сартр
+            %div.events-row__desc #{event.description}
