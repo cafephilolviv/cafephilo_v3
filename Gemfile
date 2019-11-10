@@ -48,7 +48,7 @@ group :development do
   gem "guard-livereload", "~> 2.5", ">= 2.5.2"
   gem "rubycritic"
   gem "annotate"
-  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git'
 end
 
 group :test do
