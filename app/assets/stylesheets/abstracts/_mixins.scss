@@ -193,7 +193,7 @@ $error_message_block_color: #FF0000;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
 }
 
-@mixin rounded($radius: 0.5em) {
+@mixin radius($radius: 0.5em) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
   border-radius: $radius;
