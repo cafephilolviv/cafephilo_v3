@@ -1,0 +1,41 @@
+.events-row {
+  padding: 40px 0;
+
+  &:nth-child(even) {
+    .events-row__image-wrapper {
+      order: 1;
+    }
+
+    .events-row__image {
+      margin-left: 10%;
+    }
+
+    .events-row__info {
+      margin-right: 10%;
+    }
+  }
+
+  &:nth-child(odd) {
+    .events-row__image {
+      text-align: right;
+      margin-right: 10%;
+    }
+
+    .events-row__info {
+      margin-left: 10%;
+    }
+  }
+
+  &__image {
+    height: 516px;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &__desc {
+    margin-top: 1em;
+    line-height: 1.3;
+  }
+}
