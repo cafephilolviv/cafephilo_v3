@@ -21,6 +21,7 @@ gem "slim"
 gem "kaminari"
 gem "sentry-raven"
 gem 'jquery-rails'
+gem 'slim'
 
 group :development, :test do
   gem "dotenv-rails"
