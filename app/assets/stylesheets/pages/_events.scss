@@ -1,4 +1,20 @@
 .events-row {
+  position: relative;
+
+  &:before {
+    content: '';
+    height: 100%;
+    width: 2px;
+    background-color: $grey_line;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+}
+
+.events-row {
   padding: 40px 0;
 
   &:nth-child(even) {
