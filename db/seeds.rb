@@ -6,9 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Speaker.destroy_all
 Event.destroy_all
 
 IMG_COUNT = 7
+
+20.times do |i|
+  # ====== Speakers ======= #
+  Speaker.create!(id: i + 1,
+                  first_name: Faker::Name.first_name,
+                  last_name: Faker::Name.last_name)
+end
 
 20.times do |i|
   img_index = i % IMG_COUNT
@@ -23,4 +31,11 @@ IMG_COUNT = 7
 
   event.images.attach(io: File.open("#{Rails.root}/tmp/posters/#{img_index}.jpg"),
                       filename: "#{img_index}.jpg")
+
+  3.times do
+    if rand(5) < 3
+      EventSpeaker.create!(event_id: event.id,
+                           speaker_id: rand(1..20))
+    end
+  end
 end
