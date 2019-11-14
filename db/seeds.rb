@@ -8,6 +8,8 @@
 
 Speaker.destroy_all
 Event.destroy_all
+Member.destroy_all
+Fact.destroy_all
 
 IMG_COUNT = 7
 
@@ -38,4 +40,24 @@ end
                            speaker_id: rand(1..20))
     end
   end
+end
+
+3.times do |i|
+  Fact.create!(number: rand(100..1000),
+               title: Faker::Lorem.sentence(word_count: 3,
+                                            supplemental: true,
+                                            random_words_to_add: 3),
+               description: Faker::Lorem.sentence(word_count: 10,
+                                                  supplemental: true,
+                                                  random_words_to_add: 10))
+
+  member = Member.create!(first_name: Faker::Name.first_name,
+                          last_name: Faker::Name.last_name,
+                          position: Faker::Job.title,
+                          description: Faker::Lorem.sentence(word_count: 10,
+                                                              supplemental: true,
+                                                              random_words_to_add: 10))
+
+  member.image.attach(io: File.open("#{Rails.root}/tmp/members/#{i}.jpg"),
+                      filename: "#{i}.jpg")
 end
