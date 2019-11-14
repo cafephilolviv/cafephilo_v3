@@ -14,6 +14,8 @@
 class Event < ApplicationRecord
   has_rich_text :description
   has_many_attached :images
+  has_many :event_speakers
+  has_many :speakers, through: :event_speakers
 
   validates :title, presence: true
   validates :date, presence: true
