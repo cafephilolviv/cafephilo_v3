@@ -17,8 +17,7 @@ gem "devise"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "mini_magick"
 gem "image_processing", "~> 1.2"
-gem 'haml-rails', '~> 2.0'
-gem 'slim'
+gem "slim"
 
 group :development, :test do
   gem "dotenv-rails"
