@@ -18,6 +18,7 @@ gem "bootsnap", ">= 1.4.2", require: false
 gem "mini_magick"
 gem "image_processing", "~> 1.2"
 <<<<<<< HEAD
+<<<<<<< HEAD
 gem "slim"
 gem "kaminari"
 gem "sentry-raven"
@@ -26,6 +27,9 @@ gem 'jquery-rails'
 gem 'haml-rails', '~> 2.0'
 >>>>>>> jquery added
 gem 'slim'
+=======
+gem "slim"
+>>>>>>> haml removed
 
 group :development, :test do
   gem "dotenv-rails"
