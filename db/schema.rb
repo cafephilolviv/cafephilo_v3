@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_11_163358) do
+ActiveRecord::Schema.define(version: 2019_11_14_190238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,9 +46,23 @@ ActiveRecord::Schema.define(version: 2019_10_11_163358) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "event_speakers", force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "speaker_id"
+    t.index ["event_id"], name: "index_event_speakers_on_event_id"
+    t.index ["speaker_id"], name: "index_event_speakers_on_speaker_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.datetime "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "speakers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
