@@ -13,11 +13,21 @@ div.container.events-list
               = event.date.strftime("%b") 
         div.col-12.col-md-6
           div.events-row__info
-            h3 
+            h3
               = event.title
-            h4 
+            h4
               = event.date.strftime("%d.%m.%y")
-            h4 Спікер: Жан-Поль Сартр
+            - unless event.speakers.size.zero?
+              h4.events-row__speakers-title
+                - if event.speakers.size == 1
+                  | Спікер:
+                - else
+                  | Спікери:
+              ul.events-row__speakers
+                - event.speakers.each do |speaker|
+                  li
+                    h4
+                      = "#{speaker.first_name} #{speaker.last_name}"
             div.events-row__desc
               div.events-row__desc-inner
                 = event.description.body.html_safe
