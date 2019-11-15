@@ -3,7 +3,7 @@
 server '159.69.209.127',
        user: 'cafephilo_deploy',
        roles: %w[app db web]
-
+set :project_name, 'cafephilo_v3_staging'
 set :branch, 'develop'
 set :deploy_to, '/home/cafephilo_deploy/staging/site/'
 
@@ -30,7 +30,7 @@ namespace :deploy do
   task :yarn_install do
     on roles(:web) do
       within release_path do
-        execute("cd #{release_path} && yarn install")
+        execute("cd #{release_path} && RAILS_ENV=#{stage} yarn install")
       end
     end
   end
@@ -45,7 +45,7 @@ namespace :deploy do
 
   task :set_release do
     version = Open3.capture2('sentry-cli releases propose-version')[0].chomp
-    system("sentry-cli releases new #{version} -p cafephilo-site")
+    system("sentry-cli releases new #{version} -p #{project_name}")
     system("sentry-cli releases set-commits --auto #{version}")
     system("sentry-cli releases deploys #{version} new -e #{stage}")
   end

@@ -18,11 +18,11 @@ test:
   database: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_TEST_NAME') %>
 
 staging:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
   username: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_STAGING_USER') %>
   password: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_STAGING_PASSWORD') %>
   database: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_STAGING_NAME') %>
-
 
 production:
   <<: *default
