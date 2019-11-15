@@ -20,8 +20,6 @@ gem "image_processing", "~> 1.2"
 gem "slim"
 gem "kaminari"
 gem "sentry-raven"
-gem 'jquery-rails'
-gem 'slim'
 
 group :development, :test do
   gem "dotenv-rails"
@@ -49,7 +47,6 @@ group :development do
   gem "guard-livereload", "~> 2.5", ">= 2.5.2"
   gem "rubycritic"
   gem "annotate"
-  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git'
 end
 
 group :test do
