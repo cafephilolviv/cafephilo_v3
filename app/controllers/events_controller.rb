@@ -2,7 +2,8 @@
 
 class EventsController < ApplicationController
   def index
-    events = Event.all
+    events ||= Events::IndexPageRepository.new(Event).paginate(params[:page])
+
     render :index, locals: { events: events }
   end
 end

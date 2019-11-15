@@ -17,6 +17,8 @@ gem "devise"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "mini_magick"
 gem "image_processing", "~> 1.2"
+gem "slim"
+gem "kaminari"
 
 group :development, :test do
   gem "dotenv-rails"
@@ -32,8 +34,11 @@ group :development do
   gem "pry"
   gem "pry-doc"
   gem "rubocop"
+  gem "rubocop-rails"
   gem "rubocop-rails_config"
   gem "rubocop-rspec"
+  gem "capistrano", "~> 3.11", require: false
+  gem "capistrano-rails", "~> 1.4", require: false
   gem "guard"
   gem "guard-rspec", "~> 4.7", ">= 4.7.3"
   gem "guard-spork", "~> 2.1"
