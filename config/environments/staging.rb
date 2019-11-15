@@ -43,4 +43,14 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'service.cafephilo.lviv.ua',
+    port:                 587,
+    domain:               'cafephilo.lviv.ua',
+    user_name:            ENV['CAFEPHILO_V3_STAGING_MAIL_USERNAME'],
+    password:             ENV['CAFEPHILO_V3_STAGING_MAIL_PASSWORD'],
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
 end
