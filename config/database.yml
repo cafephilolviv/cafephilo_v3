@@ -3,26 +3,26 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-
-development:
-  <<: *default
-  username: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_USER') %>
-  password: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_PASSWORD') %>
-  database: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_NAME') %>
-
-
-test:
-  <<: *default
-  username: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_TEST_USER') %>
-  password: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_TEST_PASSWORD') %>
-  database: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_TEST_NAME') %>
-
 staging:
   adapter: postgresql
   encoding: unicode
-  username: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_STAGING_USER') %>
-  password: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_STAGING_PASSWORD') %>
-  database: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_STAGING_NAME') %>
+  username: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_STAGING_USER', nil) %>
+  password: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_STAGING_PASSWORD', nil) %>
+  database: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_STAGING_NAME', nil) %>
+
+development:
+  <<: *default
+  username: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_USER', nil) %>
+  password: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_PASSWORD', nil) %>
+  database: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_NAME', nil) %>
+
+test:
+  <<: *default
+  username: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_TEST_USER', nil) %>
+  password: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_TEST_PASSWORD', nil) %>
+  database: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_TEST_NAME', nil) %>
+
+
 
 production:
   <<: *default

@@ -3,10 +3,10 @@
 server '159.69.209.127',
        user: 'cafephilo_deploy',
        roles: %w[app db web]
+
 set :project_name, 'cafephilo_v3_staging'
 set :branch, 'develop'
 set :deploy_to, '/home/cafephilo_deploy/staging/site/'
-set :rails_env, 'staging'
 set :normalize_asset_timestamps,
     %w[public/images public/javascripts public/stylesheets]
 set :keep_assets, 2
