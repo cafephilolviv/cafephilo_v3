@@ -14,7 +14,7 @@ set :keep_assets, 2
 stage        = 'staging'
 shared_path  = '/home/cafephilo_deploy/staging/site/shared'
 socket_path  = "#{shared_path}/tmp/sockets"
-puma_sock    = "unix://#{socket_path}/puma.sock"
+puma_sock    = "unix://#{socket_path}/cafephilo_v3_staging.sock"
 puma_control = "unix://#{socket_path}/pumactl.sock"
 puma_state   = "#{socket_path}/puma.state"
 puma_log     = "#{shared_path}/log/puma-#{stage}.log"
@@ -55,36 +55,28 @@ namespace :server do
   desc 'Start the application'
   task :start do
     on roles(:app) do
-      execute "cd #{current_path} && RAILS_ENV=#{stage}
-              && bundle exec puma -b '#{puma_sock}' -e #{stage} -t2:4
-               --control '#{puma_control}' -S #{puma_state} >> #{puma_log} 2>&1 &",
-              :pty => false
+      execute "cd #{current_path} && RAILS_ENV=#{stage} && bundle exec puma -b '#{puma_sock}' -e #{stage} -t2:4 --control '#{puma_control}' -S #{puma_state} >> #{puma_log} 2>&1 &", :pty => false
     end
   end
 
   desc 'Stop the application'
   task :stop do
     on roles(:app) do
-      execute "cd #{current_path} && RAILS_ENV=#{stage}
-              && bundle exec pumactl -S #{puma_state} stop"
+      execute "cd #{current_path} && RAILS_ENV=#{stage} && bundle exec pumactl -S #{puma_state} stop"
     end
   end
 
   desc 'Restart the application'
   task :restart do
     on roles(:app) do
-      execute "cd #{current_path}
-              && RAILS_ENV=#{stage}
-              && bundle exec pumactl -S #{puma_state} restart"
+      execute "cd #{current_path} && RAILS_ENV=#{stage} && bundle exec pumactl -S #{puma_state} restart"
     end
   end
 
   desc 'Status of the application'
   task :status do
     on roles(:app) do
-      execute "cd #{current_path}
-               && RAILS_ENV=#{stage}
-               && bundle exec pumactl -S #{puma_state} stats"
+      execute "cd #{current_path} && RAILS_ENV=#{stage} && bundle exec pumactl -S #{puma_state} stats"
     end
   end
 
