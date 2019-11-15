@@ -18,7 +18,7 @@ require "sprockets/railtie"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-Dotenv::Railtie.load
+
 module CafephiloV3
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -31,5 +31,8 @@ module CafephiloV3
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    Raven.configure do |config|
+      config.dsn = ENV['RAVEN_STAGING_URL']
+    end
   end
 end

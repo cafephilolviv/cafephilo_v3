@@ -19,6 +19,7 @@ gem "mini_magick"
 gem "image_processing", "~> 1.2"
 gem "slim"
 gem "kaminari"
+gem "sentry-raven"
 
 group :development, :test do
   gem "dotenv-rails"

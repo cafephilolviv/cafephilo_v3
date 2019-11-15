@@ -5,7 +5,7 @@ server '159.69.209.127',
        roles: %w[app db web]
 
 set :branch, 'develop'
-set :deploy_to, '/home/cafephilo_staging/staging/site/'
+set :deploy_to, '/home/cafephilo_deploy/staging/site/'
 
 set :normalize_asset_timestamps,
     %w[public/images public/javascripts public/stylesheets]

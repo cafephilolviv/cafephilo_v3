@@ -17,6 +17,12 @@ test:
   password: <%= ENV.fetch('DATABASE_TEST_PASSWORD') %>
   database: <%= ENV.fetch('DATABASE_TEST_NAME') %>
 
+development:
+  <<: *default
+  username: <%= ENV.fetch('DATABASE_STAGING_USER') %>
+  password: <%= ENV.fetch('DATABASE_STAGING_PASSWORD') %>
+  database: <%= ENV.fetch('DATABASE_STAGING_NAME') %>
+
 
 production:
   <<: *default
