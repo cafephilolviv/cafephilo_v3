@@ -18,6 +18,8 @@ gem "bootsnap", ">= 1.4.2", require: false
 gem "mini_magick"
 gem "image_processing", "~> 1.2"
 gem "slim"
+gem "kaminari"
+gem "sentry-raven"
 
 group :development, :test do
   gem "dotenv-rails"
@@ -33,8 +35,11 @@ group :development do
   gem "pry"
   gem "pry-doc"
   gem "rubocop"
+  gem "rubocop-rails"
   gem "rubocop-rails_config"
   gem "rubocop-rspec"
+  gem "capistrano", "~> 3.11", require: false
+  gem "capistrano-rails", "~> 1.4", require: false
   gem "guard"
   gem "guard-rspec", "~> 4.7", ">= 4.7.3"
   gem "guard-spork", "~> 2.1"
@@ -42,7 +47,6 @@ group :development do
   gem "guard-livereload", "~> 2.5", ">= 2.5.2"
   gem "rubycritic"
   gem "annotate"
-  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git'
 end
 
 group :test do
