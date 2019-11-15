@@ -11,6 +11,7 @@ set :normalize_asset_timestamps,
     %w[public/images public/javascripts public/stylesheets]
 set :keep_assets, 2
 
+project_name = 'cafephilo_v3_staging'
 stage        = 'staging'
 shared_path  = '/home/cafephilo_deploy/staging/site/shared'
 socket_path  = "#{shared_path}/tmp/sockets"
