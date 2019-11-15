@@ -39,6 +39,7 @@ namespace :deploy do
   task :source_env do
     on roles(:app) do
       execute 'source ~/.profile'
+      execute 'source ~/.bashrc'
     end
   end
 
@@ -46,7 +47,7 @@ namespace :deploy do
     version = Open3.capture2('sentry-cli releases propose-version')[0].chomp
     system("sentry-cli releases new #{version} -p cafephilo-site")
     system("sentry-cli releases set-commits --auto #{version}")
-    system("sentry-cli releases deploys #{version} new -e production")
+    system("sentry-cli releases deploys #{version} new -e #{stage}")
   end
 end
 
