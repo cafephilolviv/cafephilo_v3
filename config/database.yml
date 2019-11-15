@@ -6,22 +6,22 @@ default: &default
 
 development:
   <<: *default
-  username: <%= ENV.fetch('DATABASE_USER') %>
-  password: <%= ENV.fetch('DATABASE_PASSWORD') %>
-  database: <%= ENV.fetch('DATABASE_NAME') %>
+  username: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_USER') %>
+  password: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_PASSWORD') %>
+  database: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_NAME') %>
 
 
 test:
   <<: *default
-  username: <%= ENV.fetch('DATABASE_TEST_USER') %>
-  password: <%= ENV.fetch('DATABASE_TEST_PASSWORD') %>
-  database: <%= ENV.fetch('DATABASE_TEST_NAME') %>
+  username: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_TEST_USER') %>
+  password: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_TEST_PASSWORD') %>
+  database: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_TEST_NAME') %>
 
-development:
+staging:
   <<: *default
-  username: <%= ENV.fetch('DATABASE_STAGING_USER') %>
-  password: <%= ENV.fetch('DATABASE_STAGING_PASSWORD') %>
-  database: <%= ENV.fetch('DATABASE_STAGING_NAME') %>
+  username: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_STAGING_USER') %>
+  password: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_STAGING_PASSWORD') %>
+  database: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_STAGING_NAME') %>
 
 
 production:
