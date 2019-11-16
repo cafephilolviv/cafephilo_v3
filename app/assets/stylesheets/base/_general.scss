@@ -42,12 +42,9 @@ h2 {
   line-height: 1.3;
 }
 
-h3 {
-  margin: .3em 0 .7em 0;
-}
-
 h1 {
-  font-size: 70px;
+  font-size: 65px;
+  font-family: 'HelveticaNeueCyr-Bold';
 }
 
 h2 {
@@ -55,9 +52,11 @@ h2 {
 }
 
 h3 {
+  font-family: 'HelveticaNeueCyr-Medium';
   font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
+  margin: .3em 0 .7em 0;
 }
 
 h4 {
