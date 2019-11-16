@@ -22,18 +22,18 @@ puma_log     = "#{shared_path}/log/puma-#{stage}.log"
 stage_log    = "#{shared_path}/log/#{stage}.log"
 
 namespace :deploy do
-  before 'deploy:assets:precompile', 'deploy:yarn_install'
+  # before 'deploy:assets:precompile', 'deploy:yarn_install'
   before 'deploy', 'deploy:source_env'
   after 'deploy:finished', 'server:restart'
 
-  desc 'Run rake yarn:install'
-  task :yarn_install do
-    on roles(:web) do
-      within release_path do
-        execute("cd #{release_path} && RAILS_ENV=#{stage} yarn install")
-      end
-    end
-  end
+  # desc 'Run rake yarn:install'
+  # task :yarn_install do
+  #   on roles(:web) do
+  #     within release_path do
+  #       execute("cd #{release_path} && RAILS_ENV=#{stage} yarn install")
+  #     end
+  #   end
+  # end
 
   desc 'load env vars into session'
   task :source_env do
