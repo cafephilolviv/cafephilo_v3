@@ -100,3 +100,19 @@ h4 {
     }
   }
 }
+
+.socials {
+  a {
+    img {
+      width: 46px;
+      height: 46px;
+      @include animate(all, 0.1s);
+    }
+
+    &:hover {
+      img {
+        @include scale(1.1);
+      }
+    }
+  }
+}

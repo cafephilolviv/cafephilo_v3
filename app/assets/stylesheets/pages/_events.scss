@@ -14,6 +14,17 @@
   }
 }
 
+.event-year {
+  h2 {
+    background-color: $white;
+    text-align: center;
+    color: $grey_title;
+    font-size: 65px;
+    font-family: 'HelveticaNeueCyr-Black';
+    margin: 0;
+  }
+}
+
 .events-row {
   padding: size(40) 0;
 
@@ -76,12 +87,30 @@
     @include animate();
   }
 
+  &__links {
+    margin-top: 12px;
+
+    ul {
+      img {
+        height: 46px;
+        width: 46px;
+      }
+    }
+
+    li {
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
   &__read-more {
     border: none;
     padding-left: size(58);
     position: relative;
     line-height: size(46);
-    margin-top: 1em;
 
     .arrow {
       background-color: $grey_arrow;

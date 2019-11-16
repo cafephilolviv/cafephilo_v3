@@ -2,7 +2,14 @@ main.main
   = render 'layouts/banner'
   div.container.events-list
     - if events.size > 0
+      - event_year = 0
       - events.each do |event|
+        - if event_year == 0 || event_year != event.date.strftime("%Y")
+          - event_year = event.date.strftime("%Y")
+          div.row.event-year
+            div.col-12
+              h2
+                = event.date.strftime("%Y")
         div.row.events-row
           div.col-12.col-sm-6.events-row__image-wrapper
             - if event.images.attached?
@@ -18,7 +25,7 @@ main.main
               h3
                 = event.title
               h4
-                = event.date.strftime("%d.%m.%y")
+                = event.date.strftime("%d.%m.%Y")
               - unless event.speakers.size.zero?
                 h4.events-row__speakers-title
                   - if event.speakers.size == 1
@@ -33,14 +40,14 @@ main.main
               div.events-row__desc
                 div.events-row__desc-inner
                   = event.description.body.html_safe
-              div.events-row__links
+              div.events-row__links.d-flex.justify-content-between
                 button.events-row__read-more.read-more.button-with-arrow
                   p.arrow
                     span.arrow__line.arrow__line_left
                     span.arrow__line.arrow__line_right
                   | читати більше
                 - if !event.youtube_link.nil? && !event.mixcloud_link.nil?
-                  ul
+                  ul.d-flex.socials
                     -unless event.youtube_link.empty?
                       li
                         a href="#{event.youtube_link}"

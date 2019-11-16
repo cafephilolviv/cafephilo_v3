@@ -10,19 +10,5 @@
         margin-bottom: 0;
       }
     }
-
-    a {
-      img {
-        height: 46px;
-        width: 46px;
-        @include animate(all, .1s)
-      }
-
-      &:hover {
-        img {
-          @include scale(1.1)
-        }
-      }
-    }
   }
 }
