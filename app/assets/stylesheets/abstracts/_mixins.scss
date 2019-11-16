@@ -1,49 +1,4 @@
 /*===========================================
-   fonts
- ===========================================*/
-
-@mixin font-face($font-family, $font-url, $font-weight:'normal', $font-style:'normal') {
-  @font-face {
-    font-family: '#{$font-family}';
-    src: url('../fonts/#{$font-url}.eot');
-    src: url('../fonts/#{$font-url}.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/#{$font-url}.woff') format('woff'),
-    url('../fonts/#{$font-url}.ttf') format('truetype'),
-    url('../fonts/#{$font-url}.svg') format('svg');
-    font-weight: $font-weight;
-    font-style: $font-style;
-  }
-}
-
-// @include font-face('Roboto', 'hinted-RobotoCondensed-Regular');
-
-/*===========================================
-   placeholder
- ===========================================*/
-
-$placeholder-color: #808080;
-$required-color: #FFA500;
-$error_formfield-color: #008000;
-$error_message_block_bck: #FF0000;
-$error_message_block_color: #FF0000;
-
-::-webkit-input-placeholder {
-  color: $placeholder-color !important;
-}
-
-:-moz-placeholder {
-  color: $placeholder-color !important;
-}
-
-::-moz-placeholder {
-  color: $placeholder-color !important;
-}
-
-:-ms-input-placeholder {
-  color: $placeholder-color !important;
-}
-
-/*===========================================
    transform
  ===========================================*/
 
@@ -108,11 +63,39 @@ $error_message_block_color: #FF0000;
   transition: $all $time $effect $delay;
 }
 
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content; 
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  } 
+}
+
+@mixin animation-keyframes($keyframes_name, $fillmode, $delay_kf:0) {
+  -webkit-animation: $keyframes_name;
+  -moz-animation: $keyframes_name;
+  animation: $keyframes_name;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: $fillmode;
+  -webkit-animation-delay: $delay_kf;
+  -moz-animation-delay: $delay_kf;
+  -o-animation-delay: $delay_kf;
+  animation-delay: $delay_kf;
+}
+
 /*===========================================
    flex
  ===========================================*/
 
-@mixin flex_display {
+@mixin flex-display {
   -ms-box-orient: horizontal;
   display: -webkit-box;
   display: -moz-box;
@@ -122,7 +105,7 @@ $error_message_block_color: #FF0000;
   display: flex;
 }
 
-@mixin flex_justify_content($justify:center) {
+@mixin flex-justify-content($justify:center) {
   -webkit-box-pack: $justify;
   -webkit-justify-content: $justify;
   -moz-box-pack: $justify;
@@ -130,25 +113,25 @@ $error_message_block_color: #FF0000;
   justify-content: $justify;
 }
 
-@mixin flex_align_items($align:center) {
+@mixin flex-align-items($align:center) {
   -ms-flex-align: $align;
   -webkit-align-items: $align;
   align-items: $align;
 }
 
-@mixin flex_direction($direction:row) {
+@mixin flex-direction($direction:row) {
   -webkit-flex-direction: $direction;
   -moz-flex-direction: $direction;
   -ms-flex-direction: $direction;
   flex-direction: $direction;
 }
 
-@mixin flex_wrap($wrap:wrap) {
+@mixin flex-wrap($wrap:wrap) {
   -ms-flex-wrap: $wrap;
   flex-wrap: $wrap;
 }
 
-@mixin flex_align_content($align_c:center) {
+@mixin flex-align-content($align_c:center) {
   -webkit-box-align: $align_c;
   -moz-box-align: $align_c;
   -ms-flex-line-pack: $align_c;
@@ -156,7 +139,7 @@ $error_message_block_color: #FF0000;
   align-content: $align_c;
 }
 
-@mixin flex_value($values) {
+@mixin flex-value($values) {
   -webkit-box-flex: $values;
   -moz-box-flex: $values;
   -webkit-flex: $values;
@@ -164,7 +147,7 @@ $error_message_block_color: #FF0000;
   flex: $values;
 }
 
-@mixin flex_order($order) {
+@mixin flex-order($order) {
   -webkit-box-ordinal-group: $order;
   -moz-box-ordinal-group: $order;
   -ms-flex-order: $order;
@@ -221,10 +204,33 @@ $error_message_block_color: #FF0000;
   }
 }
 
+@mixin blur($blur: 3px) {
+  -webkit-filter: blur();
+  -moz-filter: blur($blur);
+  -o-filter: blur($blur);
+  -ms-filter: blur($blur);
+  filter: blur($blur);
+}
+
+@mixin background-size ($arguments) {
+  background-size: $arguments;
+  -webkit-background-size: $arguments;
+}
+
+@mixin background-default ($size) {
+  background: no-repeat center center;
+  @include background-size ($size);
+}
+
+@mixin box-shadow-default {
+  @include box-shadow(0, 2px, 4px, 0 rgba(0, 0, 0, .123));
+}
+
 /*===========================================
-   px to rem func
+   functions
  ===========================================*/
 
+// px to rem func
 @function size($px-size, $current-size:16) {
   @return $px-size/$current-size+rem;
 }

@@ -1,0 +1,25 @@
+/*===========================================
+   placeholder
+ ===========================================*/
+
+ $placeholder-color: #808080;
+ $required-color: #FFA500;
+ $error_formfield-color: #008000;
+ $error_message_block_bck: #FF0000;
+ $error_message_block_color: #FF0000;
+ 
+ ::-webkit-input-placeholder {
+   color: $placeholder-color !important;
+ }
+ 
+ :-moz-placeholder {
+   color: $placeholder-color !important;
+ }
+ 
+ ::-moz-placeholder {
+   color: $placeholder-color !important;
+ }
+ 
+ :-ms-input-placeholder {
+   color: $placeholder-color !important;
+ }
