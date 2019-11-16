@@ -1,5 +1,19 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: events
+#
+#  id            :bigint           not null, primary key
+#  title         :string
+#  date          :datetime
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  youtube_link  :string
+#  mixcloud_link :string
+#
+
+
 require "rails_helper"
 
 RSpec.describe Event, type: :model do

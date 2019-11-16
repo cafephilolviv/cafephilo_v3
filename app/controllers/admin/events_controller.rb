@@ -15,6 +15,13 @@ class Admin::EventsController < ApplicationController
     render :new, locals: { event: event }, layout: "admin"
   end
 
+  def show
+    authenticate_user!
+    event = find_event
+
+    render :show, locals: { event: event }, layout: "admin"
+  end
+
   def create
     authenticate_user!
     event = Event.new(permited_params)
@@ -24,6 +31,7 @@ class Admin::EventsController < ApplicationController
   end
 
   def edit
+    authenticate_user!
     event = find_event
 
     render :edit, locals: { event: event }, layout: "admin"

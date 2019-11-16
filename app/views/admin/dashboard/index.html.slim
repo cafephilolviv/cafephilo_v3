@@ -1,6 +1,6 @@
 - events.each do |e|
   div
-    = link_to admin_event_path, e.title
+    = link_to e.title, admin_event_path(e)
 
 == paginate(events)
 
