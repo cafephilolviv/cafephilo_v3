@@ -29,7 +29,9 @@ end
                         description: Faker::Lorem.paragraph(sentence_count: 20,
                                                             supplemental: true,
                                                             random_sentences_to_add: 15),
-                        date: Faker::Date.between(from: 5.years.ago, to: Date.today))
+                        date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+                        youtube_link: 'https://www.youtube.com/channel/UC4f4aHcZLG68nnpDcthSKJA',
+                        mixcloud_link: 'https://www.mixcloud.com/cafephilolviv')
 
   event.images.attach(io: File.open("#{Rails.root}/public/seed_images/posters/#{img_index}.jpg"),
                       filename: "#{img_index}.jpg")
