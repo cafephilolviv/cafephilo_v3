@@ -20,4 +20,6 @@ class Event < ApplicationRecord
   validates :title, presence: true
   validates :date, presence: true
   validates :description, presence: true
+
+  default_scope { order(date: :desc) }
 end
