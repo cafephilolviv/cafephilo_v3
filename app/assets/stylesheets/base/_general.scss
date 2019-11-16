@@ -16,7 +16,7 @@ body {
 a {
   color: $grey_text;
   text-decoration: none;
-  @include animate;
+  @include animate(all, 0.3s);
 
   &:hover {
     color: $red_hover;
@@ -25,6 +25,7 @@ a {
 
 button {
   cursor: pointer;
+  @include animate(all, 0.3s);
 }
 
 img {
@@ -81,17 +82,17 @@ h4 {
 }
 
 .to_top {
-  position: fixed;
-  bottom: 1em;
-  right: 1em;
+  position: absolute;
+  top: -(size(23));
+  left: 0;
   border: 0;
   padding: .3em;
   border-radius: 3px;
   font-size: 26px;
-
-  i {
-    width: 1em;
-    height: 1em;
-    line-height: 1em;
+  .arrow {
+    background-color: $grey_arrow;
+    &__line {
+      background-color: $white;
+    }
   }
 }

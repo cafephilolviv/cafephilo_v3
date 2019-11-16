@@ -1,0 +1,29 @@
+.footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .6);
+  color: $white;
+  font-size: 20px;
+
+  &__inner {
+    padding: size(25) 0;
+    position: relative;
+
+    .arrow {
+      background-color: $grey_to_top;
+
+      &__line {
+        background-color: $grey_text;
+      }
+    }
+  }
+
+  .form-title {
+    margin-right: 3em;
+  }
+
+  .submit {
+    margin-left: 15px;
+  }
+}

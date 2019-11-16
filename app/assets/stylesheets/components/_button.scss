@@ -3,3 +3,65 @@
   border: none;
   padding: 0;
 }
+
+.button {
+  background-color: transparent;
+  border: 2px solid $white;
+  line-height: 26px;
+  font-size: 14px;
+  padding: 0 1.5em;
+  color: $white;
+
+  &:hover {
+    background-color: $white;
+    color: $grey_text;
+  }
+}
+
+.button-with-arrow {
+  background-color: transparent;
+  padding: 0;
+
+  .arrow {
+    margin: 0;
+    width: size(46);
+    height: size(46);
+    position: relative;
+    @include radius(50%);
+
+    &__line {
+      display: block;
+      position: absolute;
+      height: 2px;
+      width: size(17);
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      @include animate();
+
+      &_left {
+        left: 9px;
+        @include rotate(45);
+      }
+
+      &_right {
+        right: 9px;
+        @include rotate(-45);
+      }
+    }
+  }
+
+  &.active {
+    .arrow {
+      &__line {
+        &_left {
+          @include rotate(-45);
+        }
+
+        &_right {
+          @include rotate(45);
+        }
+      }
+    }
+  }
+}

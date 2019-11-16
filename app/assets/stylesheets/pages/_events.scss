@@ -77,7 +77,6 @@
   }
 
   &__read-more {
-    background-color: transparent;
     border: none;
     padding-left: size(58);
     position: relative;
@@ -85,48 +84,13 @@
     margin-top: 1em;
 
     .arrow {
-      width: size(46);
-      height: size(46);
       background-color: $grey_arrow;
       position: absolute;
       top: 0;
       left: 0;
-      @include radius(50%);
 
       &__line {
-        display: block;
-        position: absolute;
-        height: 2px;
-        width: size(17);
         background-color: $white;
-        top: 2px;
-        bottom: 0;
-        margin: auto;
-        @include animate();
-
-        &_left {
-          left: 9px;
-          @include rotate(45);
-        }
-
-        &_right {
-          right: 9px;
-          @include rotate(-45);
-        }
-      }
-    }
-
-    &.active {
-      .arrow {
-        &__line {
-          &_left {
-            @include rotate(-45);
-          }
-
-          &_right {
-            @include rotate(45);
-          }
-        }
       }
     }
   }

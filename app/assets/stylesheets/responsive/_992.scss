@@ -6,9 +6,20 @@
     max-width: 720px;
   }
 
-  .to_top{
-    font-size: 22px;
-    bottom: 15px;
-    right: 15px;
+  .to_top {
+    right: 0;
+    left: auto;
+  }
+
+  /*------------ footer ------------*/
+  .footer {
+    font-size: 16px;
+    &__form {
+      @include flex-direction(column);
+    }
+
+    .form-title {
+      margin: 0 0 5px 0;
+    }
   }
 }
