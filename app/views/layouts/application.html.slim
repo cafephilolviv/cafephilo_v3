@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title CafephiloV3
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', "https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i&display=swap&subset=cyrillic-ext"
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    = yield

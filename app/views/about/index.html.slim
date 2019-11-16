@@ -1,0 +1,32 @@
+div.container.events-list
+  - if members.size > 0
+    - members.each do |member|
+      div.row.events-row
+        div.col-12.col-sm-6.events-row__image-wrapper
+          - if member.image.attached?
+            p.events-row__image
+              = image_tag member.image
+          p.event-date.d-flex.flex-column.justify-content-center.align-items-center
+        div.col-12.col-md-6
+          div.events-row__info
+            h3
+              = "#{member.first_name} #{member.last_name}"
+            h4
+              = member.position
+            div.events-row__desc
+              div.events-row__desc-inner
+                = member.description
+
+  - if facts.size > 0
+    - facts.each do |fact|
+      div.row.events-row
+        div.col-12.col-sm-6.events-row__image-wrapper
+          p.events-row__image
+            = fact.number
+        div.col-12.col-md-6
+          div.events-row__info
+            h3
+              = fact.title
+            div.events-row__desc
+              div.events-row__desc-inner
+                = fact.description

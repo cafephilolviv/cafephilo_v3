@@ -1,0 +1,155 @@
+.events-list {
+  position: relative;
+
+  &:before {
+    content: '';
+    height: 100%;
+    width: 2px;
+    background-color: $grey_line;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+}
+
+.events-row {
+  padding: size(40) 0;
+
+  &:nth-child(even) {
+    .events-row__image-wrapper {
+      @include flex_order(1);
+
+      .event-date {
+        left: -51px;
+      }
+    }
+
+    .events-row__image {
+      margin-left: 16%;
+    }
+
+    .events-row__info {
+      margin-right: 16%;
+    }
+  }
+
+  &:nth-child(odd) {
+    .events-row__image-wrapper {
+      .event-date {
+        right: -51px;
+      }
+    }
+
+    .events-row__image {
+      text-align: right;
+      margin-right: 16%;
+    }
+
+    .events-row__info {
+      margin-left: 16%;
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+  }
+
+  &__image {
+    height: size(516);
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &__info {
+    padding-top: size(100);
+  }
+
+  &__desc {
+    margin-top: 1em;
+    line-height: 1.3;
+    height: 8em;
+    overflow: hidden;
+    @include animate();
+  }
+
+  &__read-more {
+    background-color: transparent;
+    border: none;
+    padding-left: size(58);
+    position: relative;
+    line-height: size(46);
+    margin-top: 1em;
+
+    .arrow {
+      width: size(46);
+      height: size(46);
+      background-color: $grey_arrow;
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include radius(50%);
+
+      &__line {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: size(17);
+        background-color: $white;
+        top: 2px;
+        bottom: 0;
+        margin: auto;
+        @include animate();
+
+        &_left {
+          left: 9px;
+          @include rotate(45);
+        }
+
+        &_right {
+          right: 9px;
+          @include rotate(-45);
+        }
+      }
+    }
+
+    &.active {
+      .arrow {
+        &__line {
+          &_left {
+            @include rotate(-45);
+          }
+
+          &_right {
+            @include rotate(45);
+          }
+        }
+      }
+    }
+  }
+}
+
+.event-date {
+  background-color: $grey_line;
+  color: $white;
+  height: size(100);
+  width: size(100);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  @include radius(50%);
+
+  &__day {
+    font-size: size(40);
+    display: block;
+  }
+
+  &__month {
+    font-size: size(20);
+    text-transform: lowercase;
+  }
+}

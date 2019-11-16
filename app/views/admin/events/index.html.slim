@@ -1,0 +1,7 @@
+- events.each do |event|
+  div
+    b
+      = link_to  event.title , event
+    = event.description
+    p
+      = link_to('Edit', edit_admin_event_path(event))
