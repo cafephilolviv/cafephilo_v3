@@ -80,8 +80,8 @@
 
   &__desc {
     margin-top: 1em;
-    line-height: 1.3;
-    height: 8em;
+    line-height: 21px;
+    height: 125px;
     overflow: hidden;
     @include animate();
   }
@@ -91,7 +91,7 @@
   }
 
   &__links {
-    margin-top: 12px;
+    margin-top: 2em;
 
     ul {
       img {
