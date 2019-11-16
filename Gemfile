@@ -25,6 +25,7 @@ group :development, :test do
   gem "dotenv-rails"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "rspec-rails", git: "https://github.com/rspec/rspec-rails", branch: "v4.0.0.beta3"
+  gem "faker"
 end
 
 group :development do
