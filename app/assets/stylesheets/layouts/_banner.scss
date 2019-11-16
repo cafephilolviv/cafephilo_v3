@@ -1,0 +1,28 @@
+.banner {
+  padding: size(50) 0;
+
+  &__aside {
+    li {
+      text-align: right;
+      margin-bottom: 8px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      img {
+        height: 46px;
+        width: 46px;
+        @include animate(all, .1s)
+      }
+
+      &:hover {
+        img {
+          @include scale(1.1)
+        }
+      }
+    }
+  }
+}
