@@ -22,7 +22,7 @@ gem "kaminari"
 gem "sentry-raven"
 gem "font-awesome-rails"
 
-group :development, :test do
+group :development, :test, :staging do
   gem "dotenv-rails"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "rspec-rails", git: "https://github.com/rspec/rspec-rails", branch: "v4.0.0.beta3"
