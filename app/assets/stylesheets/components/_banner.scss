@@ -1,0 +1,12 @@
+.banner {
+  padding: size(50) 0;
+  img {
+    height: 46px;
+  }
+
+  &__aside {
+    li {
+      text-align: right;
+    }
+  }
+}
