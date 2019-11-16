@@ -25,7 +25,6 @@ namespace :deploy do
   before 'deploy:assets:precompile', 'deploy:yarn_install'
   before 'deploy', 'deploy:source_env'
   after 'deploy:finished', 'server:restart'
-  after 'deploy:finished', 'deploy:set_release'
 
   desc 'Run rake yarn:install'
   task :yarn_install do
