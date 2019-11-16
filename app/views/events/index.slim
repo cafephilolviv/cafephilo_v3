@@ -33,8 +33,19 @@ main.main
               div.events-row__desc
                 div.events-row__desc-inner
                   = event.description.body.html_safe
-              button.events-row__read-more.read-more.button-with-arrow
-                p.arrow
-                  span.arrow__line.arrow__line_left
-                  span.arrow__line.arrow__line_right
-                | читати більше
+              div.events-row__links
+                button.events-row__read-more.read-more.button-with-arrow
+                  p.arrow
+                    span.arrow__line.arrow__line_left
+                    span.arrow__line.arrow__line_right
+                  | читати більше
+                - if !event.youtube_link.nil? && !event.mixcloud_link.nil?
+                  ul
+                    -unless event.youtube_link.empty?
+                      li
+                        a href="#{event.youtube_link}"
+                          = image_tag "youtube.png"
+                    -unless event.mixcloud_link.empty?
+                      li
+                        a href="#{event.mixcloud_link}"
+                          = image_tag "mixcloud.png"
