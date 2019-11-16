@@ -1,49 +1,56 @@
 main.main
   = render 'layouts/banner'
-  div.container.events-list
-    div.row.events-row
-      div.col-12.cph-title
+  div.container.cf-philo-list
+    div.row
+    div.row
+      div.col-12.cf-philo-title
         h2 Що ми робимо
+    div.row.cf-philo-row.align-items-center
+      div.col-12.col-sm-6.cf-philo-row__image-wrapper
+        p.cf-philo-row__circle
       div.col-12.col-sm-6
-      div.col-12.col-sm-6
-        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis delectus cumque aliquam voluptatem reiciendis aut hic explicabo, adipisci quidem dolores.
-        p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, explicabo.
-        p Lorem ipsum dolor sit amet.
-    - if members.size > 0
+        div.cf-philo-row__info
+          p Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis delectus cumque aliquam voluptatem reiciendis aut hic explicabo, adipisci quidem dolores.
+          p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, explicabo.
+          p Lorem ipsum dolor sit amet.
+  - if members.size > 0
+    div.container.cf-philo-list
+      div.row
+      div.row
+        div.col-12.cf-philo-title
+          h2 Наша команда
       - members.each do |member|
-        div.row.events-row
-          - if member == members.first
-            div.col-12.cph-title
-              h2 Наша команда
-          div.col-12.col-sm-6.events-row__image-wrapper
+        div.row.cf-philo-row.align-items-center
+          div.col-12.col-sm-6.cf-philo-row__image-wrapper
             - if member.image.attached?
-              p.events-row__image
+              div.cf-philo-row__image
                 = image_tag member.image
-            p.event-date.d-flex.flex-column.justify-content-center.align-items-center
+            p.cf-philo-row__circle
           div.col-12.col-md-6
-            div.events-row__info
+            div.cf-philo-row__info
               h3
                 = "#{member.first_name} #{member.last_name}"
               h4
                 = member.position
-              div.events-row__desc
-                div.events-row__desc-inner
-                  = member.description
-
-    - if facts.size > 0
+              div.
+                = member.description
+  - if facts.size > 0
+    div.container.cf-philo-list
+      div.row
+      div.row
+        div.col-12.cf-philo-title
+          h2 Факти про нас
       - facts.each do |fact|
-        div.row.events-row
-          - if fact == facts.first
-            div.col-12.cph-title
-              h2 Факти про нас
-          div.col-12.col-sm-6.events-row__image-wrapper
-            div.cph-title
-              h2
-                = fact.number
+        div.row.cf-philo-row.align-items-center
+          div.col-12.col-sm-6.cf-philo-row__image-wrapper
+            div.cf-philo-row__fact-number
+              div.cf-philo-title
+                h2
+                  = fact.number
+            p.cf-philo-row__circle
           div.col-12.col-md-6
-            div.events-row__info
+            div.cf-philo-row__info
               h3
                 = fact.title
-              div.events-row__desc
-                div.events-row__desc-inner
-                  = fact.description
+              div
+                = fact.description

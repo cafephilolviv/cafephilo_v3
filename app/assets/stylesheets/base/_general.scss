@@ -117,10 +117,99 @@ h4 {
   }
 }
 
-.cph-title{
-  h2{
+.cf-philo-title {
+  h2 {
     color: $grey_title;
     font-size: 65px;
     font-family: 'HelveticaNeueCyr-Black';
+    margin-bottom: 1em;
+  }
+}
+
+.cf-philo-list {
+  position: relative;
+
+  &:before {
+    content: '';
+    height: 100%;
+    width: 2px;
+    background-color: $grey_line;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+}
+
+.cf-philo-row {
+  margin: size(70) 0;
+
+  &:nth-child(even) {
+    .cf-philo-row__image-wrapper {
+      @include flex_order(1);
+
+      .cf-philo-row__circle {
+        left: -21px;
+      }
+    }
+
+    .cf-philo-row__image,
+    .cf-philo-row__fact-number {
+      margin-left: 16%;
+    }
+
+    .cf-philo-row__info {
+      margin-right: 16%;
+    }
+  }
+
+  &:nth-child(odd) {
+    .cf-philo-row__image-wrapper {
+      .cf-philo-row__circle {
+        right: -21px;
+      }
+    }
+
+    .cf-philo-row__image,
+    .cf-philo-row__fact-number {
+      text-align: right;
+      margin-right: 16%;
+    }
+
+    .cf-philo-row__info {
+      margin-left: 16%;
+    }
+  }
+
+  &__circle {
+    background-color: $grey_line;
+    color: $white;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    @include radius(50%);
+  }
+
+  &__image-wrapper {
+    position: relative;
+  }
+
+  &__image {
+    height: size(300);
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &__fact-number {
+    h2 {
+      color: $red_hover;
+      margin: 0;
+    }
   }
 }

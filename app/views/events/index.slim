@@ -1,46 +1,46 @@
 main.main
   = render 'layouts/banner'
-  div.container.events-list
+  div.container.cf-philo-list.events-list
     - if events.size > 0
       - event_year = 0
       - events.each do |event|
-        div.row.events-row
+        div.row.cf-philo-row.event-row
           - if event_year == 0 || event_year != event.date.strftime("%Y")
             - event_year = event.date.strftime("%Y")
-            div.col-12.event-year.cph-title
+            div.col-12.event-year.cf-philo-title
               h2
                 = event.date.strftime("%Y")
-          div.col-12.col-sm-6.events-row__image-wrapper
+          div.col-12.col-sm-6.cf-philo-row__image-wrapper
             - if event.images.attached?
-              p.events-row__image
+              div.cf-philo-row__image.event-row__image
                 = image_tag event.images.first
-            p.event-date.d-flex.flex-column.justify-content-center.align-items-center
+            p.cf-philo-row__circle.event-row__circle.event-date.d-flex.flex-column.justify-content-center.align-items-center
               span.event-date__day
                 = event.date.strftime("%d") 
               span.event-date__month
                 = event.date.strftime("%b") 
           div.col-12.col-md-6
-            div.events-row__info
+            div.cf-philo-row__info.event-row__info
               h3
                 = event.title
               h4
                 = event.date.strftime("%d.%m.%Y")
               - unless event.speakers.size.zero?
-                h4.events-row__speakers-title
+                h4.cf-philo-row__speakers-title
                   - if event.speakers.size == 1
                     | Спікер:
                   - else
                     | Спікери:
-                ul.events-row__speakers
+                ul.cf-philo-row__speakers
                   - event.speakers.each do |speaker|
                     li
                       h4
                         = "#{speaker.first_name} #{speaker.last_name}"
-              div.events-row__desc
-                div.events-row__desc-inner
+              div.event-row__desc
+                div.event-row__desc-inner
                   = event.description.body.html_safe
-              div.events-row__links.d-flex.justify-content-between
-                button.events-row__read-more.read-more.button-with-arrow
+              div.event-row__links.d-flex.justify-content-between
+                button.event-row__read-more.read-more.button-with-arrow
                   p.arrow
                     span.arrow__line.arrow__line_left
                     span.arrow__line.arrow__line_right
@@ -49,9 +49,9 @@ main.main
                   ul.d-flex.socials
                     -unless event.youtube_link.empty?
                       li
-                        a href="#{event.youtube_link}"
+                        a href="#{event.youtube_link}" target="blank"
                           = image_tag "youtube.png"
                     -unless event.mixcloud_link.empty?
                       li
-                        a href="#{event.mixcloud_link}"
+                        a href="#{event.mixcloud_link}" target="blank"
                           = image_tag "mixcloud.png"

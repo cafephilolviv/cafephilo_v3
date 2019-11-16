@@ -1,7 +1,7 @@
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
     $('.read-more').on('click', function () {
-        let desc = $(this).parents('.events-row__info').children('.events-row__desc'),
-            text_height = desc.children('.events-row__desc-inner').outerHeight();
+        let desc = $(this).parents('.event-row__info').children('.event-row__desc'),
+            text_height = desc.children('.event-row__desc-inner').outerHeight();
         $(this).toggleClass('active')
 
         if ($(this).hasClass('active')) {

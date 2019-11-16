@@ -1,4 +1,4 @@
-.events-list {
+.cf-philo-list {
   position: relative;
 
   &:before {
@@ -22,58 +22,60 @@
   }
 }
 
-.events-row {
-  margin: size(40) 0;
 
+.event-row {
   &:nth-child(even) {
-    .events-row__image-wrapper {
+    .cf-philo-row__image-wrapper {
       @include flex_order(1);
 
-      .event-date {
-        left: -51px;
+      .cf-philo-row__circle {
+        &.event-date {
+          left: -51px;
+        }
       }
-    }
-
-    .events-row__image {
-      margin-left: 16%;
-    }
-
-    .events-row__info {
-      margin-right: 16%;
     }
   }
 
   &:nth-child(odd) {
-    .events-row__image-wrapper {
-      .event-date {
-        right: -51px;
+    .cf-philo-row__image-wrapper {
+      .cf-philo-row__circle {
+        &.event-date {
+          right: -51px;
+        }
       }
-    }
-
-    .events-row__image {
-      text-align: right;
-      margin-right: 16%;
-    }
-
-    .events-row__info {
-      margin-left: 16%;
     }
   }
 
-  &__image-wrapper {
-    position: relative;
+  &__circle {
+    &.cf-philo-row__circle {
+      height: size(100);
+      width: size(100);
+    }
+  }
+
+  .event-date {
+    span{
+      line-height: 1.1;
+    }
+    &__day {
+      font-size: size(40);
+      display: block;
+    }
+
+    &__month {
+      font-size: size(20);
+      text-transform: lowercase;
+    }
   }
 
   &__image {
-    height: size(516);
+    &.cf-philo-row__image {
+      height: size(516);
 
-    img {
-      height: 100%;
+      img {
+        height: 100%;
+      }
     }
-  }
-
-  &__info {
-    padding-top: size(100);
   }
 
   &__desc {
@@ -82,6 +84,10 @@
     height: 8em;
     overflow: hidden;
     @include animate();
+  }
+
+  &__info {
+    padding-top: size(100);
   }
 
   &__links {
@@ -119,27 +125,5 @@
         background-color: $white;
       }
     }
-  }
-}
-
-.event-date {
-  background-color: $grey_line;
-  color: $white;
-  height: size(100);
-  width: size(100);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  @include radius(50%);
-
-  &__day {
-    font-size: size(40);
-    display: block;
-  }
-
-  &__month {
-    font-size: size(20);
-    text-transform: lowercase;
   }
 }
