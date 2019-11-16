@@ -1,3 +1,23 @@
 @media screen and (max-width: 575px) {
-  
+
+  /*------------ general ------------*/
+  .cf-philo-row {
+    margin: 25px 0;
+    &__image {
+      &.cf-philo-row__image {
+        height: auto;
+        padding: 0 2em;
+      }
+    }
+  }
+
+  /*------------ events ------------*/
+  .event-row {
+    &__image {
+      &.cf-philo-row__image {
+        height: auto;
+        padding: 0 2em;
+      }
+    }
+  }
 }

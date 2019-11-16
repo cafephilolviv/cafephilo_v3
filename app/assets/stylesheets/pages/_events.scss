@@ -1,33 +1,13 @@
-.cf-philo-list {
-  position: relative;
-
-  &:before {
-    content: '';
-    height: 100%;
-    width: 2px;
-    background-color: $grey_line;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-  }
-}
-
 .event-year {
   h2 {
-    background-color: $white;
     text-align: center;
     margin-bottom: .5em;
   }
 }
 
-
 .event-row {
   &:nth-child(even) {
     .cf-philo-row__image-wrapper {
-      @include flex_order(1);
-
       .cf-philo-row__circle {
         &.event-date {
           left: -51px;
@@ -54,9 +34,10 @@
   }
 
   .event-date {
-    span{
+    span {
       line-height: 1.1;
     }
+
     &__day {
       font-size: size(40);
       display: block;

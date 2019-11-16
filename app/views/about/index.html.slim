@@ -1,32 +1,32 @@
 main.main
   = render 'layouts/banner'
-  div.container.cf-philo-list
-    div.row
+  div.container.cf-philo-list.about-what-we-do
+    div.row.d-none.d-lg-block
     div.row
       div.col-12.cf-philo-title
         h2 Що ми робимо
     div.row.cf-philo-row.align-items-center
-      div.col-12.col-sm-6.cf-philo-row__image-wrapper
+      div.col-12.col-lg-6.cf-philo-row__image-wrapper.d-none.d-lg-block
         p.cf-philo-row__circle
-      div.col-12.col-sm-6
+      div.col-12.col-lg-6
         div.cf-philo-row__info
           p Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis delectus cumque aliquam voluptatem reiciendis aut hic explicabo, adipisci quidem dolores.
           p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, explicabo.
           p Lorem ipsum dolor sit amet.
   - if members.size > 0
     div.container.cf-philo-list
-      div.row
+      div.row.d-none.d-lg-block
       div.row
         div.col-12.cf-philo-title
           h2 Наша команда
       - members.each do |member|
         div.row.cf-philo-row.align-items-center
-          div.col-12.col-sm-6.cf-philo-row__image-wrapper
+          div.col-12.col-lg-6.cf-philo-row__image-wrapper
             - if member.image.attached?
               div.cf-philo-row__image
                 = image_tag member.image
             p.cf-philo-row__circle
-          div.col-12.col-md-6
+          div.col-12.col-lg-6
             div.cf-philo-row__info
               h3
                 = "#{member.first_name} #{member.last_name}"
@@ -36,19 +36,19 @@ main.main
                 = member.description
   - if facts.size > 0
     div.container.cf-philo-list
-      div.row
+      div.row.d-none.d-lg-block
       div.row
         div.col-12.cf-philo-title
           h2 Факти про нас
       - facts.each do |fact|
         div.row.cf-philo-row.align-items-center
-          div.col-12.col-sm-6.cf-philo-row__image-wrapper
+          div.col-12.col-lg-6.cf-philo-row__image-wrapper
             div.cf-philo-row__fact-number
               div.cf-philo-title
                 h2
                   = fact.number
             p.cf-philo-row__circle
-          div.col-12.col-md-6
+          div.col-12.col-lg-6
             div.cf-philo-row__info
               h3
                 = fact.title

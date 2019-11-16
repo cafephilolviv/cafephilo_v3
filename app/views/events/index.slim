@@ -10,7 +10,7 @@ main.main
             div.col-12.event-year.cf-philo-title
               h2
                 = event.date.strftime("%Y")
-          div.col-12.col-sm-6.cf-philo-row__image-wrapper
+          div.col-12.col-lg-6.cf-philo-row__image-wrapper
             - if event.images.attached?
               div.cf-philo-row__image.event-row__image
                 = image_tag event.images.first
@@ -19,7 +19,7 @@ main.main
                 = event.date.strftime("%d") 
               span.event-date__month
                 = event.date.strftime("%b") 
-          div.col-12.col-md-6
+          div.col-12.col-lg-6
             div.cf-philo-row__info.event-row__info
               h3
                 = event.title

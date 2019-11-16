@@ -11,9 +11,114 @@
     left: auto;
   }
 
+  .cf-philo-list {
+    &:before {
+      left: 15px;
+      right: auto;
+    }
+  }
+
+  .cf-philo-row {
+    &:nth-child(even) {
+      .cf-philo-row__image-wrapper {
+        @include flex_order(0);
+
+        .cf-philo-row__circle {
+          left: -19px;
+        }
+      }
+
+      .cf-philo-row__image {
+        margin-left: 0;
+      }
+
+      .cf-philo-row__fact-number {
+        margin-left: 2em;
+      }
+
+      .cf-philo-row__info {
+        margin-right: 0;
+      }
+    }
+
+    &:nth-child(odd) {
+      .cf-philo-row__image-wrapper {
+        .cf-philo-row__circle {
+          left: -19px;
+          right: auto;
+        }
+      }
+
+      .cf-philo-row__image {
+        text-align: center;
+        margin-right: 0;
+      }
+
+      .cf-philo-row__fact-number {
+        text-align: left;
+        margin-right: 0;
+        margin-left: 2em;
+      }
+
+      .cf-philo-row__info {
+        margin-left: 0;
+      }
+    }
+
+    &__image {
+      text-align: center;
+    }
+  }
+
+  /*------------ events ------------*/
+  .event-row {
+    &:nth-child(even) {
+      .cf-philo-row__image-wrapper {
+        .cf-philo-row__circle {
+          &.event-date {
+            left: -19px;
+          }
+        }
+      }
+    }
+
+    &:nth-child(odd) {
+      .cf-philo-row__image-wrapper {
+        .cf-philo-row__circle {
+          &.event-date {
+            left: -19px;
+            right: auto;
+          }
+        }
+      }
+    }
+
+    &__info {
+      padding-top: 1em;
+    }
+
+    &__circle {
+      &.cf-philo-row__circle {
+        height: 40px;
+        width: 40px;
+      }
+    }
+
+    .event-date {
+      &__day {
+        font-size: size(15);
+      }
+
+      &__month {
+        font-size: size(12);
+      }
+    }
+  }
+
   /*------------ footer ------------*/
   .footer {
     font-size: 16px;
+
     &__form {
       @include flex-direction(column);
     }
