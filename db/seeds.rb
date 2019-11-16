@@ -31,7 +31,7 @@ end
                                                             random_sentences_to_add: 15),
                         date: Faker::Date.between(from: 5.years.ago, to: Date.today))
 
-  event.images.attach(io: File.open("#{Rails.root}/tmp/posters/#{img_index}.jpg"),
+  event.images.attach(io: File.open("#{Rails.root}/public/seed_images/posters/#{img_index}.jpg"),
                       filename: "#{img_index}.jpg")
 
   3.times do
@@ -58,6 +58,6 @@ end
                                                               supplemental: true,
                                                               random_words_to_add: 10))
 
-  member.image.attach(io: File.open("#{Rails.root}/tmp/members/#{i}.jpg"),
+  member.image.attach(io: File.open("#{Rails.root}/public/seed_images/team/#{i}.jpg"),
                       filename: "#{i}.jpg")
 end
