@@ -4,7 +4,7 @@ require "capistrano/setup"
 require "capistrano/deploy"
 require "capistrano/rails"
 require "capistrano/bundler"
-load 'deploy/assets'
+
 require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
 
