@@ -1,1 +1,39 @@
-p Contacts
+main.main
+  div.container
+    div.row.banner
+      div.banner__title.col-12.col-md-10.col-lg-8.offset-lg-2.d-flex.flex-column.justify-content-center
+        h1 cafe philosophique lviv
+        h2 простір свободи
+    div.row.contacts
+      div.col-12.col-md-10.col-lg-8.offset-lg-2.d-flex.flex-column.justify-content-center
+        div.contacts__content.container
+          div.row.align-items-center
+            div.col-12.col-md-6
+              | Lorem ipsum dolor sit amet consectetur adipisicing elit. Error atque facere accusantium libero dignissimos iure perferendis expedita nobis excepturi. Aspernatur, mollitia! Dolorum nobis animi architecto harum. Ratione numquam quod voluptatum?
+            div.col-12.col-md-6
+              ul
+                li
+                  a href="tel:+380501234567"
+                    span
+                        i.fa.fa-phone
+                    | (050) 123 45 67
+                li
+                  a href="mailto:cafephilo@gmail.com"
+                    span
+                      i.fa.fa-envelope-o
+                    | cafephilo@gmail.com
+      aside.banner__aside.col-12.col-md-2
+        nav.socials
+          ul.d-flex.d-md-block
+            li
+              a href="https://www.youtube.com/channel/UC4f4aHcZLG68nnpDcthSKJA" target="blank"
+                = image_tag "youtube.png"
+            li
+              a href="https://www.facebook.com/lvivcafephilo/" target="blank"
+                = image_tag "facebook.png"
+            li
+              a href="https://t.me/cafephilolviv" target="blank"
+                = image_tag "telegram.png"
+            li
+              a href="https://www.mixcloud.com/cafephilolviv" target="blank"
+                = image_tag "mixcloud.png"

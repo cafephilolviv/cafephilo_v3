@@ -20,6 +20,7 @@ gem "image_processing", "~> 1.2"
 gem "slim"
 gem "kaminari"
 gem "sentry-raven"
+gem "font-awesome-rails"
 
 group :development, :test do
   gem "dotenv-rails"

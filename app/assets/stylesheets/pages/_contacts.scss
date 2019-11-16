@@ -1,0 +1,44 @@
+.contacts {
+  &__content {
+    padding: 0 !important;
+    ul {
+      font-size: 20px;
+      margin-left: 1em;
+    }
+
+    li {
+      margin-bottom: 8px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      line-height: 30px;
+
+      span {
+        display: inline-block;
+        background-color: $grey_line;
+        color: $white;
+        line-height: 1;
+        text-align: center;
+        margin-right: 8px;
+        @include radius(50%);
+        @include animate(all, .3s);
+
+        i {
+          height: 20px;
+          width: 20px;
+          margin: 5px;
+        }
+      }
+
+      &:hover {
+        span {
+          background-color: $red_hover;
+        }
+      }
+    }
+  }
+}
