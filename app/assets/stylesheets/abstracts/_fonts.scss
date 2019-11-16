@@ -1,0 +1,26 @@
+@mixin font-face($font-family, $font-url, $font-weight:'normal', $font-style:'normal') {
+  @font-face {
+    font-family: '#{$font-family}';
+    src: url('#{$font-url}.eot');
+    src: url('#{$font-url}.eot?#iefix') format('embedded-opentype'),
+    url('#{$font-url}.woff') format('woff'),
+    url('#{$font-url}.ttf') format('truetype'),
+    url('#{$font-url}.svg') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+@include font-face('HelveticaNeueCyr-Medium', 'hinted-HelveticaNeueCyr-Medium', 500, 'normal');
+@include font-face('HelveticaNeueCyr-Italic', 'hinted-HelveticaNeueCyr-Italic', 500, 'italic');
+@include font-face('HelveticaNeueCyr-ThinItalic', 'hinted-HelveticaNeueCyr-ThinItalic', 100, 'italic');
+@include font-face('HelveticaNeueCyr-Black', 'hinted-HelveticaNeueCyr-Black', 900, 'normal');
+@include font-face('HelveticaNeueCyr-Thin', 'hinted-HelveticaNeueCyr-Thin', 100, 'normal');
+@include font-face('HelveticaNeueCyr-BoldItalic', 'hinted-HelveticaNeueCyr-BoldItalic', 'bold', 'italic');
+@include font-face('HelveticaNeueCyr-Bold', 'hinted-HelveticaNeueCyr-Bold', 'bold', 'normal');
+@include font-face('HelveticaNeueCyr-BlackItalic', 'hinted-HelveticaNeueCyr-BlackItalic', 900, 'italic');
+@include font-face('HelveticaNeueCyr-UltraLightItalic', 'hinted-HelveticaNeueCyr-UltraLightItalic', 200, 'italic');
+@include font-face('HelveticaNeueCyr-UltraLight', 'hinted-HelveticaNeueCyr-UltraLight', 200, 'normal');
+@include font-face('HelveticaNeueCyr-LightItalic', 'hinted-HelveticaNeueCyr-LightItalic', 300, 'italic');
+@include font-face('HelveticaNeueCyr-Roman', 'hinted-HelveticaNeueCyr-Roman', 'normal', 'normal');
+@include font-face('HelveticaNeueCyr-Light', 'hinted-HelveticaNeueCyr-Light', 300, 'normal');

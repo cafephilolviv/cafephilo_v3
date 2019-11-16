@@ -34,5 +34,6 @@ module CafephiloV3
     Raven.configure do |config|
       config.dsn = ENV['RAVEN_STAGING_URL']
     end
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end
