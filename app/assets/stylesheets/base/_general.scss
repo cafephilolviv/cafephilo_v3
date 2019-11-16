@@ -16,6 +16,11 @@ body {
 a {
   color: $grey_text;
   text-decoration: none;
+  @include animate;
+
+  &:hover {
+    color: $red_hover;
+  }
 }
 
 button {
@@ -54,6 +59,10 @@ h3 {
 h4 {
   font-weight: 100;
   margin-bottom: 5px;
+}
+
+.main{
+  margin-top: 130px;
 }
 
 .wrapper {

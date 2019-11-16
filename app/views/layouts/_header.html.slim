@@ -1,11 +1,12 @@
 header.header
   div.wrapper.wrapper-container
-    div.header__inner.d-flex.justify-content-between
-      p.header__logo
-        img
-          = image_tag "logo.svg"
+    div.header__inner.d-flex.justify-content-between.align-items-center
+      div.header__logo
+        a href="/"
+          img
+            = image_tag "logo.svg"
       nav.header__menu
-        ul
+        ul.d-flex
           li
             a href="/about" Про нас
           li

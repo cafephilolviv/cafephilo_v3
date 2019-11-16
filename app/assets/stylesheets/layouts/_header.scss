@@ -1,7 +1,27 @@
 .header {
   position: absolute;
-  overflow: hidden;
   width: 100%;
+  top: 0;
+  z-index: 1000;
+  padding: 30px 0;
+
+  &__logo {
+    img {
+      height: 70px
+    }
+  }
+
+  &__menu {
+    font-size: 20px;
+
+    li {
+      margin-right: 15px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
 
   &__menu-mobile {
     width: 100%;
@@ -15,13 +35,21 @@
       transform: translateX(0);
     }
   }
-  &.scrolled{
-    height: 100px;
+
+  &.scrolled {
     position: fixed;
-    top: -100px;
-    @include animate;
-    &.active{
+    height: 90px;
+    top: -91px;
+    padding: 10px 0;
+    background-color: $white;
+
+    &.animated {
+      @include animate;
+    }
+
+    &.active {
       top: 0;
+      @include box-shadow-default;
     }
   }
 }
