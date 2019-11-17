@@ -41,6 +41,7 @@ class Admin::EventsController < ApplicationController
     authenticate_user!
     event = find_event
     if event.update!(permited_params)
+      event.image.attach(permited_params[:image])
       redirect_to admin_events_path
     else
       render :edit, layout: "admin"
@@ -59,6 +60,6 @@ class Admin::EventsController < ApplicationController
     def permited_params
       params
         .require(:event)
-        .permit(:title, :description, :date, images: [])
+        .permit(:title, :description, :date, :image)
     end
 end

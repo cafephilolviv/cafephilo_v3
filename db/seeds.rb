@@ -33,7 +33,7 @@ end
                         youtube_link: 'https://www.youtube.com/channel/UC4f4aHcZLG68nnpDcthSKJA',
                         mixcloud_link: 'https://www.mixcloud.com/cafephilolviv')
 
-  event.images.attach(io: File.open("#{Rails.root}/public/seed_images/posters/#{img_index}.jpg"),
+  event.image.attach(io: File.open("#{Rails.root}/public/seed_images/posters/#{img_index}.jpg"),
                       filename: "#{img_index}.jpg")
 
   3.times do

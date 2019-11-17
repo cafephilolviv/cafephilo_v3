@@ -7,7 +7,23 @@
   margin: 20px 0 20px 0; 
 }
 
-nav > li{
+nav > li {
   display: inline-block;
 }
 
+.event__form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.event__form > input {
+  width: 100%;
+}
+
+.title_form_input {
+  font-weight: bolder;
+}
+
+#vertical_event_form > * {
+  flex-direction: column;
+}

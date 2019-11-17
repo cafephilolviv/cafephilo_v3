@@ -11,9 +11,9 @@ main.main
               h2
                 = event.date.strftime("%Y")
           div.col-12.col-lg-6.cf-philo-row__image-wrapper
-            - if event.images.attached?
+            - if event.image.attached?
               div.cf-philo-row__image.event-row__image
-                = image_tag event.images.first
+                = image_tag event.image
             p.cf-philo-row__circle.event-row__circle.event-date.d-flex.flex-column.justify-content-center.align-items-center
               span.event-date__day
                 = event.date.strftime("%d") 

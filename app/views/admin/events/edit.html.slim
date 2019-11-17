@@ -1,13 +1,17 @@
-div.event__form
-  = form_with model: [:admin, event], local: true do |f|
-    div
-      = f.label :title
+= form_with model: [:admin, event], local: true do |f|
+  div#vertical_event__form
+    div.event__title
+      = f.label :title, class: 'title_form_input'
       = f.text_field :title
-    div
-      = f.label :description
+    div.event__desc
+      = f.label :description, class: 'title_form_input'
       = f.rich_text_area :description
-    div
-      = f.label :date
+    div.event__desc
+      = f.label :date, class: 'title_form_input'
       = f.date_field :date
+    div.event__desc
+      = f.file_field :image
+    div.events__img_preview
+      = image_tag event.image.variant(resize_to_limit: [200, 200])
     div
       = f.submit

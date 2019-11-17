@@ -15,7 +15,7 @@
 
 class Event < ApplicationRecord
   has_rich_text :description
-  has_many_attached :images
+  has_one_attached :image
   has_many :event_speakers
   has_many :speakers, through: :event_speakers
 
