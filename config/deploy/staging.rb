@@ -76,4 +76,11 @@ namespace :server do
       execute "tail -n 50 #{stage_log}"
     end
   end
+
+  desc 'Run seeds on server'
+  task :seeds do
+    on roles(:app) do
+      execute "cd #{current_path} && RAILS_ENV=#{stage} bundle exec rake db:seed"
+    end
+  end
 end
