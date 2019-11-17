@@ -11,7 +11,7 @@ set :normalize_asset_timestamps,
     %w[public/images public/javascripts public/stylesheets]
 set :keep_assets, 2
 
-append :linked_dirs, 'public/seed_images'
+append :linked_dirs, 'public/seed_images', 'storage'
 
 project_name = 'cafephilo_v3_staging'
 stage        = 'staging'
