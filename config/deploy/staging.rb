@@ -11,6 +11,8 @@ set :normalize_asset_timestamps,
     %w[public/images public/javascripts public/stylesheets]
 set :keep_assets, 2
 
+append :linked_dirs, 'public/seed_images'
+
 project_name = 'cafephilo_v3_staging'
 stage        = 'staging'
 shared_path  = '/home/cafephilo_deploy/staging/site/shared'
@@ -22,18 +24,8 @@ puma_log     = "#{shared_path}/log/puma-#{stage}.log"
 stage_log    = "#{shared_path}/log/#{stage}.log"
 
 namespace :deploy do
-  # before 'deploy:assets:precompile', 'deploy:yarn_install'
   before 'deploy', 'deploy:source_env'
   after 'deploy:finished', 'server:restart'
-
-  # desc 'Run rake yarn:install'
-  # task :yarn_install do
-  #   on roles(:web) do
-  #     within release_path do
-  #       execute("cd #{release_path} && RAILS_ENV=#{stage} yarn install")
-  #     end
-  #   end
-  # end
 
   desc 'load env vars into session'
   task :source_env do
@@ -41,13 +33,6 @@ namespace :deploy do
       execute 'source ~/.profile'
       execute 'source ~/.bashrc'
     end
-  end
-
-  task :set_release do
-    version = Open3.capture2('sentry-cli releases propose-version')[0].chomp
-    system("sentry-cli releases new #{version} -p #{project_name}")
-    system("sentry-cli releases set-commits --auto #{version}")
-    system("sentry-cli releases deploys #{version} new -e #{stage}")
   end
 end
 

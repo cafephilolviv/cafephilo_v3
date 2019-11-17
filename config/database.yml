@@ -22,8 +22,6 @@ test:
   password: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_TEST_PASSWORD', nil) %>
   database: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_TEST_NAME', nil) %>
 
-
-
 production:
   <<: *default
   database: cafephilo_v3_production
