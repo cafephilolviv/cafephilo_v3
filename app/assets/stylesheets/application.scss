@@ -11,7 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  */
-
+//= require actiontext
 @charset 'utf-8';
 
 // Vendor
@@ -34,7 +34,6 @@
 @import "pages/__pages-dir";
 
 // Other
-@import "actiontext";
 @import "admin";
 
 // Media
