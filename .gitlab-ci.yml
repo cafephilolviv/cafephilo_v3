@@ -21,6 +21,7 @@ rubocop:
   script:
     - gem install rubocop
     - gem install rubocop-rails
+    - gem install rubocop-rails_config
     - rubocop app/ lib/
   allow_failure: true
 
