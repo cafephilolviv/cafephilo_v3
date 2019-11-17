@@ -1,11 +1,13 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  host: localhost
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 staging:
   adapter: postgresql
   encoding: unicode
+  host: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_STAGING_HOST', nil) %>
   username: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_STAGING_USER', nil) %>
   password: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_STAGING_PASSWORD', nil) %>
   database: <%= ENV.fetch('CAFEPHILO_V3_DATABASE_STAGING_NAME', nil) %>
