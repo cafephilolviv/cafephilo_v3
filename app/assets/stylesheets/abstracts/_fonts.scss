@@ -1,11 +1,11 @@
 @mixin font-face($font-family, $font-url, $font-weight:'normal', $font-style:'normal') {
   @font-face {
     font-family: '#{$font-family}';
-    src: url('#{$font-url}.eot');
-    src: url('#{$font-url}.eot?#iefix') format('embedded-opentype'),
-    url('#{$font-url}.woff') format('woff'),
-    url('#{$font-url}.ttf') format('truetype'),
-    url('#{$font-url}.svg') format('svg');
+    src: url(font-path('#{$font-url}.eot'));
+    src: url(font-path('#{$font-url}.eot?#iefix')) format('embedded-opentype'),
+    url(font-path('#{$font-url}.woff')) format('woff'),
+    url(font-path('#{$font-url}.ttf')) format('truetype'),
+    url(font-path('#{$font-url}.svg')) format('svg');
     font-weight: $font-weight;
     font-style: $font-style;
   }
