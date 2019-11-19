@@ -10,6 +10,11 @@ html
   body
     #admin__layout
       nav#admin__navigation
-        li= link_to(t('event', scope: :admin), admin_events_path)
-        li= link_to(t('new_event', scope: :admin), new_admin_event_path)
+        ul
+          li
+            div.admin__menu_element
+              = link_to(t('Admin', scope: :admin), admin_root_url)
+          li
+            div.admin__menu_element
+              = link_to(t('new_event', scope: :admin), new_admin_event_path)
       = yield

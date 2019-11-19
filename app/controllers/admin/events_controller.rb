@@ -4,8 +4,7 @@ class Admin::EventsController < ApplicationController
   def index
     authenticate_user!
 
-    events = Event.all
-
+    events = Events::IndexPageRepository.new(Event).paginate(params[:page])
     render :index, locals: { events: events }, layout: "admin"
   end
 

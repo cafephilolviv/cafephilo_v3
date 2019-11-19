@@ -1,1 +1,19 @@
+= form_with model: [:admin, event] do |f|
+  div#vertical_event__form
+    div.event__title
+      = f.label :title, class: 'title_form_input'
+      = f.text_field :title
+    div.event__desc
+      = f.label :description, class: 'title_form_input'
+      = f.rich_text_area :description
+    div.event__desc
+      = f.label :date, class: 'title_form_input'
+      = f.date_field :date
+    div.event__desc
+      = f.file_field :image
+    div.events__img_preview
+      - if event.image.attached?
+        = image_tag event.image.variant(resize_to_limit: [200, 200])
+    div
+      = f.submit
 

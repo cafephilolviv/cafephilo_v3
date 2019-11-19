@@ -1,14 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-size: border-box;
+}
+
 #admin__layout {
   width: 1000px;
   margin: 0 auto;
 }
 
 #admin__navigation {
-  margin: 20px 0 20px 0; 
+  margin: 20px 0 20px 0;
+  border-bottom: 5px;
+  border-bottom-color: #000000;
 }
 
-nav > li {
+nav > ul > li {
   display: inline-block;
+  font-weight: bold;
+}
+
+.admin__menu_element {
+  margin-right: 10px;
 }
 
 .event__form {
@@ -26,4 +39,12 @@ nav > li {
 
 #vertical_event_form > * {
   flex-direction: column;
+}
+
+.admin__events__index {
+  padding-top: 10px;
+}
+
+.admin__event_title {
+  font-weight: bold;
 }

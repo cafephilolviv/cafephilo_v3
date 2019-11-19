@@ -1,0 +1,7 @@
+* TODO Admin page
+** TODO Members page
+   change info about
+** TODO About page
+** TODO Add ability to set google analytics
+** TODO Add ability to add speackers in admin event page
+** TODO Change counter after event have been created

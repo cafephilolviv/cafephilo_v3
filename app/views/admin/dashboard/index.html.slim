@@ -1,6 +1,4 @@
-- events.each do |e|
-  div
-    = link_to "edit #{e.title}", edit_admin_event_path(e)
-
-== paginate(events)
+ div
+   = link_to "Events", admin_events_path
+   = link_to "About", admin_about_index_path
 

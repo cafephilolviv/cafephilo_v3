@@ -1,0 +1,11 @@
+- members.each do |m|
+  div
+    = m.description
+  = link_to "Edit member info", edit_admin_member_path(m.id)
+
+- facts.each do |f|
+  div
+    = f.title
+  div
+    = f.description
+  = link_to "Edit fact", edit_admin_fact_path(f.id)
