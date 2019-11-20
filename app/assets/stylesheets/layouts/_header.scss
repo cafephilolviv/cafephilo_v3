@@ -23,19 +23,6 @@
     }
   }
 
-  &__menu-mobile {
-    width: 100%;
-    opacity: 0;
-    @include animate(all, 0.15s);
-    transform: translateX(50%);
-
-    &.active {
-      opacity: 1;
-      z-index: 1000;
-      transform: translateX(0);
-    }
-  }
-
   &.scrolled {
     position: fixed;
     height: 90px;
