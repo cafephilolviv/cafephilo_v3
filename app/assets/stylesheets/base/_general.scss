@@ -181,6 +181,48 @@ h4 {
     }
   }
 
+  &__speakers {
+    &::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    &-title {
+      float: left;
+      margin-right: 5px;
+    }
+
+    &-list {
+      &::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+
+      li {
+        float: left;
+        margin-right: 5px;
+
+        h4 {
+          &::after {
+            content: ',';
+          }
+        }
+
+        &:last-child {
+          margin-right: 0;
+
+          h4 {
+            &::after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
   &__circle {
     background-color: $grey_line;
     color: $white;

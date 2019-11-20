@@ -26,16 +26,17 @@ main.main
               h4
                 = event.date.strftime("%d.%m.%Y")
               - unless event.speakers.size.zero?
-                h4.cf-philo-row__speakers-title
-                  - if event.speakers.size == 1
-                    | Спікер:
-                  - else
-                    | Спікери:
-                ul.cf-philo-row__speakers
-                  - event.speakers.each do |speaker|
-                    li
-                      h4
-                        = "#{speaker.first_name} #{speaker.last_name}"
+                div.cf-philo-row__speakers
+                  h4.cf-philo-row__speakers-title
+                    - if event.speakers.size == 1
+                      | Спікер:
+                    - else
+                      | Спікери:
+                  ul.cf-philo-row__speakers-list
+                    - event.speakers.each do |speaker|
+                      li
+                        h4
+                          = "#{speaker.first_name} #{speaker.last_name}"
               div.event-row__desc
                 div.event-row__desc-inner
                   = event.description.body.html_safe
