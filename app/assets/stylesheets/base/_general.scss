@@ -212,3 +212,64 @@ h4 {
     }
   }
 }
+
+.cf-philo-paginator {
+  padding: 1em;
+  background-color: $white;
+  text-align: center;
+
+  span {
+    text-transform: lowercase;
+    font-size: 0;
+    margin: 0 5px;
+
+    &.page {
+      font-family: 'HelveticaNeueCyr-Medium';
+      font-size: 25px;
+      margin: 0 2px;
+    }
+
+    &.first,
+    &.prev,
+    &.next,
+    &.last {
+      a {
+        &::before {
+          font-size: 25px;
+        }
+      }
+    }
+
+    &.first {
+      a {
+        &::before {
+          content: '<<';
+        }
+      }
+    }
+
+    &.prev {
+      a {
+        &::before {
+          content: '<';
+        }
+      }
+    }
+
+    &.next {
+      a {
+        &::before {
+          content: '>';
+        }
+      }
+    }
+
+    &.last {
+      a {
+        &::before {
+          content: '>>';
+        }
+      }
+    }
+  }
+}

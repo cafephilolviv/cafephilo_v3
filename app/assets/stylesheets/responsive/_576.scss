@@ -12,6 +12,26 @@
     }
   }
 
+  .cf-philo-paginator {
+    span {
+      &.page {
+        font-size: 18px;
+      }
+
+      &.first,
+      &.prev,
+      &.next,
+      &.last {
+        a {
+          &::before {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+
+
   /*------------ banner ------------*/
   .banner {
     padding: 35px 0;
