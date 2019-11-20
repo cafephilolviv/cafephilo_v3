@@ -10,7 +10,7 @@
     .cf-philo-row__image-wrapper {
       .cf-philo-row__circle {
         &.event-date {
-          left: -51px;
+          left: -46px;
         }
       }
     }
@@ -20,7 +20,7 @@
     .cf-philo-row__image-wrapper {
       .cf-philo-row__circle {
         &.event-date {
-          right: -51px;
+          right: -46px;
         }
       }
     }
@@ -28,8 +28,8 @@
 
   &__circle {
     &.cf-philo-row__circle {
-      height: size(100);
-      width: size(100);
+      height: size(90);
+      width: size(90);
     }
   }
 
@@ -92,14 +92,14 @@
 
   &__read-more {
     border: none;
-    padding-left: size(58);
+    padding-left: size(54);
     position: relative;
     line-height: size(46);
 
     .arrow {
       background-color: $grey_arrow;
       position: absolute;
-      top: 0;
+      top: 4px;
       left: 0;
 
       &__line {
