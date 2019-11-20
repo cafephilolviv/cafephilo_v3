@@ -1,6 +1,13 @@
 @media screen and (max-width: 991px) {
 
   /*------------ general ------------*/
+  h1 {
+    font-size: 45px;
+  }
+  
+  h2 {
+    font-size: 27px;
+  }
 
   .wrapper {
     max-width: 720px;
@@ -9,6 +16,12 @@
   .to_top {
     right: 0;
     left: auto;
+  }
+
+  .cf-philo-title {
+    h2 {
+      font-size: 45px;
+    }
   }
 
   .cf-philo-list {
@@ -76,7 +89,7 @@
       .cf-philo-row__image-wrapper {
         .cf-philo-row__circle {
           &.event-date {
-            left: -19px;
+            left: -41px;
           }
         }
       }
@@ -86,7 +99,7 @@
       .cf-philo-row__image-wrapper {
         .cf-philo-row__circle {
           &.event-date {
-            left: -19px;
+            left: -41px;
             right: auto;
           }
         }
@@ -99,18 +112,14 @@
 
     &__circle {
       &.cf-philo-row__circle {
-        height: 40px;
-        width: 40px;
+        height: 80px;
+        width: 80px;
       }
     }
 
     .event-date {
       &__day {
-        font-size: size(15);
-      }
-
-      &__month {
-        font-size: size(12);
+        font-size: size(35);
       }
     }
   }

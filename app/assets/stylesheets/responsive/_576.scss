@@ -3,6 +3,7 @@
   /*------------ general ------------*/
   .cf-philo-row {
     margin: 25px 0;
+
     &__image {
       &.cf-philo-row__image {
         height: auto;
@@ -13,6 +14,48 @@
 
   /*------------ events ------------*/
   .event-row {
+    &:nth-child(even) {
+      .cf-philo-row__image-wrapper {
+        .cf-philo-row__circle {
+          &.event-date {
+            left: -19px;
+          }
+        }
+      }
+    }
+
+    &:nth-child(odd) {
+      .cf-philo-row__image-wrapper {
+        .cf-philo-row__circle {
+          &.event-date {
+            left: -19px;
+            right: auto;
+          }
+        }
+      }
+    }
+
+    &__info {
+      padding-top: 1em;
+    }
+
+    &__circle {
+      &.cf-philo-row__circle {
+        height: 40px;
+        width: 40px;
+      }
+    }
+
+    .event-date {
+      &__day {
+        font-size: size(15);
+      }
+
+      &__month {
+        font-size: size(12);
+      }
+    }
+
     &__image {
       &.cf-philo-row__image {
         height: auto;
