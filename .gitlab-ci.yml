@@ -8,9 +8,9 @@ services:
   - postgres:latest
 
 variables:
-  DATABASE_TEST_NAME: test_db
-  DATABASE_TEST_USER: runner
-  DATABASE_TEST_PASSWORD: ""
+  POSTGRES_DB: test_db
+  POSTGRES_USER: runner
+  POSTGRES_PASSWORD: ""
 
 stages:
   - linters
@@ -31,6 +31,7 @@ rspec:
     - apt-get update -qq && apt-get install -yqq nodejs
     - gem install bundler
     - bundle install -j $(nproc) --path vendor
+    - cp config/database.yml.gitlab config/database.yml
     - RAILS_ENV=test bundle exec rake db:create
     - RAILS_ENV=test bundle exec rake db:migrate
     - RAILS_ENV=test bundle exec rspec
