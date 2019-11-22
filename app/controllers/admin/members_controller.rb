@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::MembersController < ApplicationController
   def index
     authenticate_user!
@@ -6,7 +8,7 @@ class Admin::MembersController < ApplicationController
 
   def edit
     authenticate_user!
-    
+
     member = find_member
     render :edit, locals: { member: member }, layout: "admin"
   end

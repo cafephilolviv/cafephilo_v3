@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Events
   class IndexPageRepository
     attr_reader :event_model

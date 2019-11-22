@@ -1,8 +1,6 @@
-class EmailSubscriptionsController < ApplicationController
-  def new
-    new_sub = EmailSubscription.new
-  end
+# frozen_string_literal: true
 
+class EmailSubscriptionsController < ApplicationController
   def create
     new_sub = EmailSubscription.new(sub_params)
 
