@@ -1,3 +1,4 @@
+== javascript_pack_tag 'email_subscriptions'
 footer.footer
   div.wrapper.wrapper-container
     div.footer__inner.d-flex.justify-content-lg-end.align-items-center
@@ -7,7 +8,8 @@ footer.footer
           span.arrow__line.arrow__line_right
       div.footer__form.d-flex
         span.form-title Дізнавайтеся про події першими!
-        form
-          label
-            input type="text" placeholder="Ваш e-mail"/
-          button.button.submit type="submit" Підписатися
+        == form_with(scope: :email_subscription,
+                     url: email_subscriptions_path,
+                     method: "post", remote: true) do |f|
+          = f.text_field :email, placeholder: "Ваш e-mail"
+          = f.submit "Підписатися", class: "button submit", id: 'submit__email'
