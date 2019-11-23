@@ -55,4 +55,5 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
   config.action_mailer.default_url_options = { host: 'staging.cafephilo.lviv.ua' }
+  config.action_mailer.default_options = { from: 'staging@cafephilo.lviv.ua' }
 end

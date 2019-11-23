@@ -26,6 +26,7 @@ stage_log    = "#{shared_path}/log/#{stage}.log"
 namespace :deploy do
   before 'deploy', 'deploy:source_env'
   after 'deploy:finished', 'server:restart'
+  after 'deploy:finished', 'sidekiq:restart'
 
   desc 'load env vars into session'
   task :source_env do
@@ -96,10 +97,25 @@ namespace :sidekiq do
   desc 'Reload sidekiq in systemd'
   task :reload do
     on roles(:app) do
+      # execute("systemctl daemon-reload --user")
       execute("systemctl reload sidekiq --user")
     end
   end
 
+  desc 'Start sidekiq in systemd'
+  task :start do
+    on roles(:app) do
+      execute("systemctl start sidekiq --user")
+    end
+  end
+
+  desc 'Restart sidekiq in systemd'
+  task :restart do
+    on roles(:app) do
+      execute("systemctl restart sidekiq --user")
+    end
+  end
+  
   desc 'Stop sidekiq in systemd'
   task :stop do
     on roles(:app) do
