@@ -84,3 +84,26 @@ namespace :server do
     end
   end
 end
+
+namespace :sidekiq do
+  desc 'Enable sidekiq in systemd'
+  task :enable do
+    on roles(:app) do
+      execute("systemctl enable sidekiq --user")
+    end
+  end
+
+  desc 'Reload sidekiq in systemd'
+  task :reload do
+    on roles(:app) do
+      execute("systemctl reload sidekiq --user")
+    end
+  end
+
+  desc 'Stop sidekiq in systemd'
+  task :stop do
+    on roles(:app) do
+      execute("systemctl stop sidekiq --user")
+    end
+  end
+end

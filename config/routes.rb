@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   root to: 'events#index'
 
@@ -18,4 +20,8 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+
+  authenticate :user do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end

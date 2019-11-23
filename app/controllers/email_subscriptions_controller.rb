@@ -7,6 +7,7 @@ class EmailSubscriptionsController < ApplicationController
     if new_sub.save!
       return respond_to do |format|
         format.json { head :ok }
+        UserMailer.welcome_for_subscriber(new_sub.email).deliver_later
       end
     end
 
