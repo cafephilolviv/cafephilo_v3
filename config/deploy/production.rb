@@ -4,13 +4,16 @@ server '159.69.209.127',
        user: 'cafephilo_deploy',
        roles: %w[app db web]
 
-set :branch, 'master'
+set :project_name, 'cafephilo_v3_staging'
+set :branch, 'develop'
 set :deploy_to, '/home/cafephilo_deploy/site/'
-
 set :normalize_asset_timestamps,
     %w[public/images public/javascripts public/stylesheets]
 set :keep_assets, 2
 
+append :linked_dirs, 'public/seed_images', 'storage'
+
+project_name = 'cafephilo_v3_production'
 stage        = 'production'
 shared_path  = '/home/cafephilo_deploy/site/shared'
 socket_path  = "#{shared_path}/tmp/sockets"
@@ -21,32 +24,16 @@ puma_log     = "#{shared_path}/log/puma-#{stage}.log"
 stage_log    = "#{shared_path}/log/#{stage}.log"
 
 namespace :deploy do
-  before 'deploy:assets:precompile', 'deploy:yarn_install'
   before 'deploy', 'deploy:source_env'
   after 'deploy:finished', 'server:restart'
-  after 'deploy:finished', 'deploy:set_release'
-
-  desc 'Run rake yarn:install'
-  task :yarn_install do
-    on roles(:web) do
-      within release_path do
-        execute("cd #{release_path} && yarn install")
-      end
-    end
-  end
+  after 'deploy:finished', 'sidekiq:restart'
 
   desc 'load env vars into session'
   task :source_env do
     on roles(:app) do
       execute 'source ~/.profile'
+      execute 'source ~/.bashrc'
     end
-  end
-
-  task :set_release do
-    version = Open3.capture2('sentry-cli releases propose-version')[0].chomp
-    system("sentry-cli releases new #{version} -p cafephilo-site")
-    system("sentry-cli releases set-commits --auto #{version}")
-    system("sentry-cli releases deploys #{version} new -e production")
   end
 end
 
@@ -61,8 +48,7 @@ namespace :server do
   desc 'Stop the application'
   task :stop do
     on roles(:app) do
-      execute "cd #{current_path} && RAILS_ENV=#{stage}
-              && bundle exec pumactl -S #{puma_state} stop"
+      execute "cd #{current_path} && RAILS_ENV=#{stage} && bundle exec pumactl -S #{puma_state} stop"
     end
   end
 
@@ -89,6 +75,51 @@ namespace :server do
   task :log do
     on roles(:app) do
       execute "tail -n 50 #{stage_log}"
+    end
+  end
+
+  desc 'Run seeds on server'
+  task :seeds do
+    on roles(:app) do
+      execute "cd #{current_path} && RAILS_ENV=#{stage} bundle exec rake db:seed"
+    end
+  end
+end
+
+namespace :sidekiq do
+  desc 'Enable sidekiq in systemd'
+  task :enable do
+    on roles(:app) do
+      execute("systemctl enable sidekiq-prod --user")
+    end
+  end
+
+  desc 'Reload sidekiq in systemd'
+  task :reload do
+    on roles(:app) do
+      # execute("systemctl daemon-reload --user")
+      execute("systemctl reload sidekiq-prod --user")
+    end
+  end
+
+  desc 'Start sidekiq in systemd'
+  task :start do
+    on roles(:app) do
+      execute("systemctl start sidekiq-prod --user")
+    end
+  end
+
+  desc 'Restart sidekiq-prod in systemd'
+  task :restart do
+    on roles(:app) do
+      execute("systemctl restart sidekiq-prod --user")
+    end
+  end
+
+  desc 'Stop sidekiq in systemd'
+  task :stop do
+    on roles(:app) do
+      execute("systemctl stop sidekiq-prod --user")
     end
   end
 end

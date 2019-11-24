@@ -31,9 +31,8 @@ module CafephiloV3
     config.active_job.queue_adapter = :sidekiq
     # Don't generate system test files.
     config.generators.system_tests = nil
-    Raven.configure do |config|
-      config.dsn = ENV['RAVEN_STAGING_URL']
-    end
+
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
+    I18n.enforce_available_locales = false
   end
 end
