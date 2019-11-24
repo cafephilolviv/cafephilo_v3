@@ -23,7 +23,7 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   config.assets.compile = true
-
+  config.assets.digest = true
   config.active_storage.service = :local
 
   config.log_level = :debug
