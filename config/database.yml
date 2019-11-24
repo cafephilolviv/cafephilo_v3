@@ -26,6 +26,6 @@ test:
 
 production:
   <<: *default
-  database: cafephilo_v3_production
-  username: cafephilo_v3
-  password: <%= ENV['CAFEPHILO_V3_DATABASE_PASSWORD'] %>
+  database: <%= ENV['CAFEPHILO_V3_DATABASE_PRODUCTION_NAME'] %>
+  username: <%= ENV['CAFEPHILO_V3_DATABASE_PRODUCTION_USER'] %>
+  password: <%= ENV['CAFEPHILO_V3_DATABASE_PRODUCTION_PASSWORD'] %>
