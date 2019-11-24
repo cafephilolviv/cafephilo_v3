@@ -33,6 +33,7 @@ module CafephiloV3
     config.generators.system_tests = nil
 
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
-    I18n.enforce_available_locales = false
+    config.i18n.available_locales = [:uk, :en]
+    config.i18n.enforce_available_locales = false
   end
 end
