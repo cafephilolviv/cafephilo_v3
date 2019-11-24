@@ -22,6 +22,7 @@ gem "kaminari"
 gem "sentry-raven"
 gem "font-awesome-rails"
 gem "sidekiq"
+gem "redis-namespace"
 
 group :development, :test, :staging do
   gem "dotenv-rails"

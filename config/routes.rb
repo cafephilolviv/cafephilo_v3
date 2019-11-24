@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :events, only: %i[index show]
   resources :about, only: :index
   resources :contacts, only: :index
-  resources :email_subscriptions, only: %i[create destroy]
+  resources :email_subscriptions, only: %i[create show destroy], param: :uuid
+
   get '/admin', to: 'admin/dashboard#index', as: 'admin_root'
 
   namespace :admin do

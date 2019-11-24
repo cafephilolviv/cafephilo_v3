@@ -1,3 +1,5 @@
-| для декативації підписки перейдіть за посиланням
+footer.email__subscribing__footer
+  p
+    | для декативації підписки перейдіть за посиланням
 
-a href="google.com"
+  == link_to t("email.subscription.cancel"), email_subscription_url(email_to_destroy.uuid)

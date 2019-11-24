@@ -1,4 +1,9 @@
 import Swal from "sweetalert2";
+import {
+  swalOptions,
+  swalDuplicateOptions,
+  swalErrorOptions
+} from "./email_alerts/alert_options";
 
 document.body.addEventListener("ajax:success", function(_event) {
   const email_input = document.getElementById("email_subscription_email");
@@ -6,27 +11,19 @@ document.body.addEventListener("ajax:success", function(_event) {
   clearInput(email_input);
 });
 
-document.body.addEventListener("ajax:error", function(_event) {
+document.body.addEventListener("ajax:error", function(event) {
+  const email_input = document.getElementById("email_subscription_email");
+
+  const [_, __, status_code] = event.detail;
+  if (status_code.status === 409) {
+    Swal.fire(swalDuplicateOptions);
+    clearInput(email_input);
+    return;
+  }
+
   Swal.fire(swalErrorOptions);
 });
 
 const clearInput = element => {
   element.value = "";
-};
-
-// alert options
-const swalOptions = {
-  position: "center",
-  icon: "success",
-  title: "Пошта додана!",
-  showConfirmButton: false,
-  timer: 1500
-};
-
-const swalErrorOptions = {
-  position: "center",
-  icon: "error",
-  title: "Ведіть коректну пошту!",
-  showConfirmButton: false,
-  timer: 1500
 };
