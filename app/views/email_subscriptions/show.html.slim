@@ -1,1 +1,4 @@
-== link_to t("email.subscription.cancel"), email_subscription_url(email_to_destroy.uuid), method: :delete
+main.main
+  .container
+    == button_to t("email.subscription.cancel"), email_subscription_url(email_to_destroy.uuid), method: :delete
+    == button_to t("email.subscription.back"), root_url, method: :get
