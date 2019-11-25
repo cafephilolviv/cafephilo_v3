@@ -77,20 +77,13 @@ namespace :server do
       execute "tail -n 50 #{stage_log}"
     end
   end
-
-  desc 'Run seeds on server'
-  task :seeds do
-    on roles(:app) do
-      execute "cd #{current_path} && RAILS_ENV=#{stage} bundle exec rake db:seed"
-    end
-  end
 end
 
 namespace :sidekiq do
   desc 'Enable sidekiq in systemd'
   task :enable do
     on roles(:app) do
-      execute("systemctl enable sidekiq-prod --user")
+      execute('systemctl enable sidekiq-prod --user')
     end
   end
 
@@ -98,7 +91,7 @@ namespace :sidekiq do
   task :reload do
     on roles(:app) do
       # execute("systemctl daemon-reload --user")
-      execute("systemctl reload sidekiq-prod --user")
+      execute('systemctl reload sidekiq-prod --user')
     end
   end
 
@@ -112,14 +105,14 @@ namespace :sidekiq do
   desc 'Restart sidekiq-prod in systemd'
   task :restart do
     on roles(:app) do
-      execute("systemctl restart sidekiq-prod --user")
+      execute('systemctl restart sidekiq-prod --user')
     end
   end
 
   desc 'Stop sidekiq in systemd'
   task :stop do
     on roles(:app) do
-      execute("systemctl stop sidekiq-prod --user")
+      execute('systemctl stop sidekiq-prod --user')
     end
   end
 end
