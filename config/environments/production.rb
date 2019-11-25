@@ -60,10 +60,10 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
   config.action_mailer.default_url_options = {
-    host: ENV['CAFEPHILO_V3_PRODUCTION_DEFAULT_HOST']
+    host: ENV['CAFEPHILO_V3_PRODUCTION_HOST']
   }
   config.action_mailer.default_options = {
-    from: ENV['CAFEPHILO_V3_PRODUCTION_HOST']
+    from: ENV['CAFEPHILO_V3_PRODUCTION_MAIL_USERNAME']
   }
 
   Raven.configure do |config|
