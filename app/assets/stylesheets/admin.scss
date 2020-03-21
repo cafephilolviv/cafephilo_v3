@@ -1,110 +1,50 @@
-//= require actiontext
-@import url('https://fonts.googleapis.com/css?family=Mukta&display=swap');
-@import "font-awesome";
-
-*{
+* {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  list-style: none;
-  text-decoration: none;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: x-large;
+  box-size: border-box;
 }
 
-body{
-   background-color: #f3f5f9;
+#admin__layout {
+  width: 1000px;
+  margin: 0 auto;
 }
 
-.admin__layout {
+#admin__navigation {
+  margin: 20px 0 20px 0;
+  border-bottom: 5px;
+  border-bottom-color: #000000;
+}
+
+nav > ul > li {
+  display: inline-block;
+  font-weight: bold;
+}
+
+.admin__menu_element {
+  margin-right: 10px;
+}
+
+.event__form {
   display: flex;
-  position: relative;
+  flex-wrap: wrap;
 }
 
-.admin__layout .admin__sidebar {
-  width: 200px;
-  height: 100%;
-  background: #4b4276;
-  padding: 30px 0px;
-  position: fixed;
-}
-
-.admin__layout .admin__sidebar  h2{
-  color: #fff;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.admin__layout .admin__sidebar  ul li{
-  padding: 15px;
-  border-bottom: 1px solid #bdb8d7;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  border-top: 1px solid rgba(255,255,255,0.05);
-}    
-
-.admin__layout .admin__sidebar  ul li a{
-  color: #bdb8d7;
-  display: block;
-}
-
-.admin__layout .admin__sidebar  ul li a .fas{
-  width: 25px;
-}
-
-.admin__layout .admin__sidebar  ul li:hover{
-  background-color: #594f8d;
-}
-    
-.admin__layout .admin__sidebar  ul li:hover a{
-  color: #fff;
-}
- 
-.admin__layout .admin__sidebar  .social_media{
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-}
-
-.admin__layout .admin__sidebar  .social_media a{
-  display: block;
-  width: 40px;
-  background: #594f8d;
-  height: 40px;
-  line-height: 45px;
-  text-align: center;
-  margin: 0 5px;
-  color: #bdb8d7;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-.admin__layout .admin__main {
+.event__form > input {
   width: 100%;
-  margin-left: 200px;
 }
 
-.admin__layout .admin__main .header{
-  padding: 20px;
-  background: #fff;
-  color: #717171;
-  border-bottom: 1px solid #e0e4e8;
+.title_form_input {
+  font-weight: bolder;
 }
 
-.admin__layout .admin__main .info{
-  margin: 20px;
-  color: #717171;
-  line-height: 25px;
+#vertical_event_form > * {
+  flex-direction: column;
 }
 
-.admin__layout .admin__main .info div{
-  margin-bottom: 20px;
+.admin__events__index {
+  padding-top: 10px;
 }
 
-@media (max-height: 500px){
-  .social_media{
-    display: none !important;
-  }
+.admin__event_title {
+  font-weight: bold;
 }

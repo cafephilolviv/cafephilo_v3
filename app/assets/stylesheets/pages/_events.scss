@@ -52,6 +52,10 @@
   &__image {
     &.cf-philo-row__image {
       height: size(516);
+
+      img {
+        height: 100%;
+      }
     }
   }
 

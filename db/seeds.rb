@@ -63,5 +63,3 @@ end
   member.image.attach(io: File.open("#{Rails.root}/public/seed_images/team/#{i}.jpg"),
                       filename: "#{i}.jpg")
 end
-
-User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

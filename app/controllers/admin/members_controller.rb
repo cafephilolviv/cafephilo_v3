@@ -10,12 +10,12 @@ class Admin::MembersController < ApplicationController
     authenticate_user!
 
     member = find_member
-    render :edit, locals: { member: member }, layout: 'admin'
+    render :edit, locals: { member: member }, layout: "admin"
   end
 
   def member_params
     params.require(:member)
-          .permit(:first_name, :last_name, :position, :description, :image)
+      .permit(:first_name, :last_name, :position, :description, :image)
   end
 
   def find_member

@@ -4,6 +4,6 @@ class Admin::DashboardController < ApplicationController
   def index
     authenticate_user!
 
-    render :index, layout: 'admin'
+    render :index, layout: "admin"
   end
 end

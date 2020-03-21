@@ -4,7 +4,7 @@ server '159.69.209.127',
        user: 'cafephilo_deploy',
        roles: %w[app db web]
 
-set :project_name, 'cafephilo_v3_production'
+set :project_name, 'cafephilo_v3_staging'
 set :branch, 'master'
 set :deploy_to, '/home/cafephilo_deploy/site/'
 set :normalize_asset_timestamps,
@@ -27,7 +27,6 @@ namespace :deploy do
   before 'deploy', 'deploy:source_env'
   after 'deploy:finished', 'server:restart'
   after 'deploy:finished', 'sidekiq:restart'
-  after 'deploy:finished', 'deploy:set_release'
 
   desc 'load env vars into session'
   task :source_env do
@@ -35,14 +34,6 @@ namespace :deploy do
       execute 'source ~/.profile'
       execute 'source ~/.bashrc'
     end
-  end
-
-  desc 'Set release'
-  task :set_release do
-    version = Open3.capture2('sentry-cli releases propose-version')[0].chomp
-    system("sentry-cli releases new #{version} -p cafephilo-site")
-    system("sentry-cli releases set-commits --auto #{version}")
-    system("sentry-cli releases deploys #{version} new -e production")
   end
 end
 
