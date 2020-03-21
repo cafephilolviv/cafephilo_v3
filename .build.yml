@@ -8,8 +8,8 @@ sources:
 tasks:
   - setup: |
       sudo -u postgres createuser -d -l -r -w test
-      export DATABASE_TEST_NAME='test_db'
-      export DATABASE_TEST_USER='test'
+      export DATABASE_TEST_NAME=test_db
+      export DATABASE_TEST_USER=test
       gem install bundler --user-install
       export PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
       bundle install --no-system

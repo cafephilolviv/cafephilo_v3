@@ -63,7 +63,7 @@
       }
 
       .cf-philo-row__image {
-        text-align: center;
+        @include flex-justify-content(center);
         margin-right: 0;
       }
 
@@ -79,7 +79,7 @@
     }
 
     &__image {
-      text-align: center;
+      @include flex-justify-content(center);
     }
   }
 

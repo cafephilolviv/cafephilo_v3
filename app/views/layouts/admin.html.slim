@@ -5,19 +5,11 @@ html
     title Admin dashboard
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'admin/index', 'data-turbolinks-track': 'reload'
   body
-    #admin__layout
-      nav#admin__navigation
-        ul
-          li
-            div.admin__menu_element
-              = link_to(t('Admin', scope: :admin), admin_root_url)
-          li
-            div.admin__menu_element
-              = link_to(t('new_event', scope: :admin), new_admin_event_path)
-          li
-            div.admin__menu_element
-              = link_to("Log out", destroy_user_session_path, method: :delete)
-      = yield
+    .admin__layout
+      = render 'layouts/partials/admin/side_menu'
+      .admin__main
+        .info
+          = yield

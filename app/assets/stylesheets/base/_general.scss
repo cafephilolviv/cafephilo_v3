@@ -170,7 +170,11 @@ h4 {
       }
     }
 
-    .cf-philo-row__image,
+    .cf-philo-row__image {
+      margin-right: 16%;
+      @include flex-justify-content(flex-end);
+    }
+
     .cf-philo-row__fact-number {
       text-align: right;
       margin-right: 16%;
@@ -241,10 +245,6 @@ h4 {
 
   &__image {
     height: size(300);
-
-    img {
-      height: 100%;
-    }
   }
 
   &__fact-number {
