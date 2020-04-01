@@ -35,5 +35,9 @@ module CafephiloV3
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
     config.i18n.available_locales = [:uk, :en]
     # config.i18n.enforce_available_locales = false
+    Raven.configure do |config|
+      config.dsn = ENV['SENTRY_DSN']
+      config.environments = ['staging', 'production']
+    end
   end
 end

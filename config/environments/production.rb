@@ -65,8 +65,4 @@ Rails.application.configure do
   config.action_mailer.default_options = {
     from: ENV['CAFEPHILO_V3_PRODUCTION_MAIL_USERNAME']
   }
-
-  Raven.configure do |config|
-    config.dsn = ENV['SENTRY_DSN']
-  end
 end
