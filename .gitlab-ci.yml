@@ -31,7 +31,6 @@ rspec:
     - apt-get update -qq && apt-get install -yqq nodejs
     - gem install bundler
     - bundle install -j $(nproc) --path vendor
-    - cp config/database.yml.gitlab config/database.yml
     - RAILS_ENV=test bundle exec rake db:create
     - RAILS_ENV=test bundle exec rake db:migrate
     - RAILS_ENV=test bundle exec rspec
