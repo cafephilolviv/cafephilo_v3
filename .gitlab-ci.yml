@@ -8,7 +8,8 @@ services:
   - postgres:latest
 
 variables:
-  CAFEPHILO_V3_DATABASE_TEST_USER: "runner"
+  CAFEPHILO_V3_DATABASE_HOST: "postgres"
+  CAFEPHILO_V3_DATABASE_TEST_USER: "postgres"
   CAFEPHILO_V3_DATABASE_TEST_PASSWORD: ""
   CAFEPHILO_V3_DATABASE_TEST_NAME: "test_db"
 
