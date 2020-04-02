@@ -14,11 +14,10 @@
 #  updated_at             :datetime         not null
 #
 
-
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe User do
-  context "There is User model" do
+  context 'There is User model' do
     it { expect(User.all).to be_truthy }
   end
 end

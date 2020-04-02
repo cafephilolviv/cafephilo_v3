@@ -4,21 +4,22 @@ class Admin::EventsController < ApplicationController
   def index
     authenticate_user!
 
-    events = Events::IndexPageRepository.new(Event).paginate(params[:page])
-    render :index, locals: { events: events }, layout: "admin"
+    events = Events::IndexPageRepository.new(Event).paginate_admin(params[:page])
+
+    render :index, locals: { events: events }, layout: 'admin'
   end
 
   def new
     authenticate_user!
     event = Event.new
-    render :new, locals: { event: event }, layout: "admin"
+    render :new, locals: { event: event }, layout: 'admin'
   end
 
   def show
     authenticate_user!
     event = find_event
 
-    render :show, locals: { event: event }, layout: "admin"
+    render :show, locals: { event: event }, layout: 'admin'
   end
 
   def create
@@ -26,39 +27,43 @@ class Admin::EventsController < ApplicationController
     event = Event.new(permited_params)
     return redirect_to admin_events_path if event.save!
 
-    render :new, layout: "admin"
+    render :new, layout: 'admin'
   end
 
   def edit
     authenticate_user!
     event = find_event
 
-    render :edit, locals: { event: event }, layout: "admin"
+    render :edit, locals: { event: event }, layout: 'admin'
   end
 
   def update
     authenticate_user!
     event = find_event
+
     if event.update!(permited_params)
-      event.image.attach(permited_params[:image])
+      #event.image.attach(permited_params[:image])
       redirect_to admin_events_path
     else
-      render :edit, layout: "admin"
+      render :edit, layout: 'admin'
     end
   end
 
   def delete
     authenticate_user!
+
+    find_event.delete
   end
 
   private
-    def find_event
-      Event.find(params[:id])
-    end
 
-    def permited_params
-      params
-        .require(:event)
-        .permit(:title, :description, :date, :image)
-    end
+  def find_event
+    Event.find(params[:id])
+  end
+
+  def permited_params
+    params
+      .require(:event)
+      .permit(:title, :description, :date, :image, :publish)
+  end
 end

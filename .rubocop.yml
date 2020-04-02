@@ -3,3 +3,6 @@ Metrics/LineLength:
 
 Documentation:
   Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false

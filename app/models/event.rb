@@ -11,6 +11,7 @@
 #  updated_at    :datetime         not null
 #  youtube_link  :string
 #  mixcloud_link :string
+#  publish       :boolean
 #
 
 class Event < ApplicationRecord
@@ -24,4 +25,8 @@ class Event < ApplicationRecord
   validates :description, presence: true
 
   default_scope { order(date: :desc) }
+
+  def self.published
+    where(publish: true)
+  end
 end

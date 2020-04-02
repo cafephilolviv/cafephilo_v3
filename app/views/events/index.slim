@@ -1,5 +1,5 @@
 main.main
-  = render 'layouts/banner'
+  = render 'layouts/partials/banner'
   div.container.cf-philo-list.events-list
     - if events.size > 0
       - event_year = 0
@@ -12,7 +12,7 @@ main.main
                 = event.date.strftime("%Y")
           div.col-12.col-lg-6.cf-philo-row__image-wrapper
             - if event.image.attached?
-              div.cf-philo-row__image.event-row__image
+              div.cf-philo-row__image.event-row__image.d-flex.align-items-center
                 = image_tag event.image
             p.cf-philo-row__circle.event-row__circle.event-date.d-flex.flex-column.justify-content-center.align-items-center
               span.event-date__day

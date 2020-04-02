@@ -10,16 +10,16 @@ Rails.application.routes.draw do
 
   get '/admin', to: 'admin/dashboard#index', as: 'admin_root'
 
-  namespace :admin do
-    resources :dashboard, only: %i[index]
-    resources :events
-    resources :about, only: %i[index]
-    resources :members, only: %i[edit update]
-    resources :facts, only: %i[edit update]
-    resources :about, only: %i[index]
-    resources :contacts
+  authenticate :user do
+    namespace :admin do
+      resources :dashboard, only: %i[index]
+      resources :events
+      resources :members, only: %i[index edit update]
+      resources :facts
+      resources :about
+      resources :contacts
+    end
   end
-
   devise_for :users
 
   authenticate :user do

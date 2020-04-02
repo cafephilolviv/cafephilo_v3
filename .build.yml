@@ -3,17 +3,53 @@ packages:
   - nodejs
   - ruby
   - postgresql
+  - curl
+  - git-core
+  - zlib1g-dev
+  - build-essential
+  - libssl-dev
+  - libreadline-dev
+  - libyaml-dev 
+  - libsqlite3-dev 
+  - sqlite3 
+  - libxml2-dev 
+  - libxslt1-dev
+  - libcurl4-openssl-dev 
+  - software-properties-common 
+  - libffi-dev
+  - libpq-dev
+  - yarn
 sources:
   - https://git.sr.ht/~voloyev/cafefilo_v3
 tasks:
   - setup: |
+      cd
+      wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
+      tar -xzvf chruby-0.3.9.tar.gz
+      cd chruby-0.3.9/
+      sudo make install
+
+      cd ../
+      wget -O ruby-install-0.7.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.7.0.tar.gz
+      tar -xzvf ruby-install-0.7.0.tar.gz
+      cd ruby-install-0.7.0/
+      sudo make install
+
+      cd ../cafefilo_v3
+      ruby-install $(cat .ruby-version)
       sudo -u postgres createuser -d -l -r -w test
-      export DATABASE_TEST_NAME='test_db'
-      export DATABASE_TEST_USER='test'
-      gem install bundler --user-install
+  - build: |
+      source /usr/local/share/chruby/chruby.sh
+      cd cafefilo_v3
+      chruby $(cat .ruby-version)
+      export RAILS_ENV='test'
+      gem install bundler:1.17.3 --user-install
       export PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
       bundle install --no-system
+      export DATABASE_TEST_NAME=test_db
+      export DATABASE_TEST_USER=test
       rake db:create
       rake db:migrate
   - test: |
+      cd cafefilo_v3
       RAILS_ENV='test' bundle exec rspec spec

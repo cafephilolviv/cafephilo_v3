@@ -8,8 +8,12 @@ module Events
       @event_model = event_model
     end
 
-    def paginate(page)
+    def paginate_admin(page)
       event_model.page(page)
+    end
+
+    def paginate(page)
+      event_model.published.page(page)
     end
   end
 end

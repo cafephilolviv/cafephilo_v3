@@ -32,3 +32,8 @@ yarn-debug.log*
 .yarn-integrity
 .env
 coverage/*
+<<<<<<< HEAD
+.vscode/settings.json
+=======
+/.vscode/
+>>>>>>> Add vscode to gitignore

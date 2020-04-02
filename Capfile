@@ -6,6 +6,6 @@ require "capistrano/rails"
 require "capistrano/bundler"
 
 require "capistrano/scm/git"
-install_plugin Capistrano::SCM::Git
+Dir.glob("lib/capistrano/tasks/*.rake").each { |r| load r }
 
-Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
+install_plugin Capistrano::SCM::Git
