@@ -8,9 +8,9 @@ services:
   - postgres:latest
 
 variables:
-  POSTGRES_DB: test_db
-  POSTGRES_USER: runner
-  POSTGRES_PASSWORD: ""
+  CAFEPHILO_V3_DATABASE_TEST_USER: "runner"
+  CAFEPHILO_V3_DATABASE_TEST_PASSWORD: ""
+  CAFEPHILO_V3_DATABASE_TEST_NAME: "test_db"
 
 stages:
   - linters
