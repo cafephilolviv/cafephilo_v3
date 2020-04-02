@@ -8,6 +8,7 @@ services:
   - postgres:latest
 
 variables:
+  POSTGRES_HOST_AUTH_METHOD: trust
   CAFEPHILO_V3_DATABASE_HOST: "postgres"
   CAFEPHILO_V3_DATABASE_TEST_USER: "postgres"
   CAFEPHILO_V3_DATABASE_TEST_PASSWORD: ""
