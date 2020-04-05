@@ -1,24 +1,12 @@
-# README
+[![builds.sr.ht status](https://builds.sr.ht/~voloyev/cafefilo_v3/.build.yml.svg)](https://builds.sr.ht/~voloyev/cafefilo_v3/.build.yml?)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Cafephilo site
 
-Things you may want to cover:
+# Build
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Install ruby `$(cat .ruby-version)`
+- Install postgres
+ - Create postgres user for db
+- Run `bundle install`
+- Run `rake db:create` && `rake db:migrate` && `rake db:seeds`
+- Run `rails s`
