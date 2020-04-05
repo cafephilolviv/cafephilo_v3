@@ -1,7 +1,6 @@
 image: ubuntu/latest
 packages:
   - nodejs
-  - ruby
   - postgresql
   - curl
   - git-core
@@ -9,13 +8,13 @@ packages:
   - build-essential
   - libssl-dev
   - libreadline-dev
-  - libyaml-dev 
-  - libsqlite3-dev 
-  - sqlite3 
-  - libxml2-dev 
+  - libyaml-dev
+  - libsqlite3-dev
+  - sqlite3
+  - libxml2-dev
   - libxslt1-dev
-  - libcurl4-openssl-dev 
-  - software-properties-common 
+  - libcurl4-openssl-dev
+  - software-properties-common
   - libffi-dev
   - libpq-dev
   - yarn
@@ -24,32 +23,31 @@ sources:
 tasks:
   - setup: |
       cd
-      wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
-      tar -xzvf chruby-0.3.9.tar.gz
-      cd chruby-0.3.9/
-      sudo make install
-
-      cd ../
-      wget -O ruby-install-0.7.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.7.0.tar.gz
-      tar -xzvf ruby-install-0.7.0.tar.gz
-      cd ruby-install-0.7.0/
-      sudo make install
-
-      cd ../cafefilo_v3
-      ruby-install $(cat .ruby-version)
-      sudo -u postgres createuser -d -l -r -w test
-  - build: |
-      source /usr/local/share/chruby/chruby.sh
+      gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+      curl -sSL https://get.rvm.io | bash
       cd cafefilo_v3
-      chruby $(cat .ruby-version)
+      source ~/.rvm/scripts/rvm
+      rvm install $(cat .ruby-version)
+      sudo -u postgres psql -c "create role test with  createdb login password 'secret';"
+      sudo -u postgres psql -c "alter user test with superuser;"
+  - build: |
+      cd cafefilo_v3
+      source ~/.rvm/scripts/rvm
+      rvm use $(cat .ruby-version)
       export RAILS_ENV='test'
+      export CAFEPHILO_V3_DATABASE_TEST_USER=test
+      export CAFEPHILO_V3_DATABASE_TEST_NAME=test_db
+      export CAFEPHILO_V3_DATABASE_TEST_PASSWORD=secret
       gem install bundler:1.17.3 --user-install
       export PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
       bundle install --no-system
-      export DATABASE_TEST_NAME=test_db
-      export DATABASE_TEST_USER=test
       rake db:create
       rake db:migrate
   - test: |
       cd cafefilo_v3
+      source ~/.rvm/scripts/rvm
+      rvm use $(cat .ruby-version)
+      export CAFEPHILO_V3_DATABASE_TEST_USER=test
+      export CAFEPHILO_V3_DATABASE_TEST_NAME=test_db
+      export CAFEPHILO_V3_DATABASE_TEST_PASSWORD=secret
       RAILS_ENV='test' bundle exec rspec spec
