@@ -21,23 +21,22 @@ Bundler.require(*Rails.groups)
 
 module CafephiloV3
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
     config.active_job.queue_adapter = :sidekiq
-    # Don't generate system test files.
     config.generators.system_tests = nil
 
-    config.assets.paths << Rails.root.join("app", "assets", "fonts")
-    config.i18n.available_locales = [:uk, :en]
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+    config.i18n.available_locales = %i[uk en]
+    config.to_prepare do
+      # Configure single controller layout
+      Devise::SessionsController.layout 'admin'
+    end
+
     # config.i18n.enforce_available_locales = false
     Raven.configure do |config|
       config.dsn = ENV['SENTRY_DSN']
-      config.environments = ['staging', 'production']
+      config.environments = %w[staging production]
     end
   end
 end
