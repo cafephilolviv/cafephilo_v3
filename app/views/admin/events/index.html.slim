@@ -1,9 +1,0 @@
-- events.each do |event|
-  div.admin__events__index
-    p
-      div.admin__event_title
-        = event.title
-    = "Date: #{event.date}"
-  = link_to('Edit', edit_admin_event_path(event))
-
-== paginate(events)
