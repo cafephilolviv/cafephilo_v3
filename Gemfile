@@ -24,6 +24,8 @@ gem 'sitemap_generator'
 gem 'slim'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
+gem 'rails_admin', '~> 2.0', '>= 2.0.2'
+gem 'rails_admin-i18n'
 
 group :development, :test, :staging do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
