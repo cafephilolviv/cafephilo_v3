@@ -31,6 +31,7 @@ module CafephiloV3
     config.to_prepare do
       # Configure single controller layout
       Devise::SessionsController.layout 'admin'
+      Devise::PasswordsController.layout 'admin'
     end
 
     # config.i18n.enforce_available_locales = false
