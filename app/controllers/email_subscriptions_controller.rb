@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class EmailSubscriptionsController < ApplicationController
+  around_action :switch_locale
+
   def show
     email_to_destroy = EmailSubscription.find_by(uuid: params[:uuid])
 
@@ -49,5 +51,11 @@ class EmailSubscriptionsController < ApplicationController
 
   def find_email
     EmailSubscription.find_by(uuid: params[:uuid])
+  end
+
+
+  def switch_locale(&action)
+    locale = params[:locale] || I18n.default_locale
+    I18n.with_locale(:uk, &action)
   end
 end

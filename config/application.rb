@@ -27,7 +27,7 @@ module CafephiloV3
     config.generators.system_tests = nil
 
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-    config.i18n.available_locales = %i[en]
+    config.i18n.available_locales = %i[en uk]
     config.to_prepare do
       # Configure single controller layout
       Devise::SessionsController.layout 'admin'
