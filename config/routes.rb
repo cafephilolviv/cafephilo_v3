@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get '/admin', to: 'admin/dashboard#index', as: 'admin_root'
-  
+
   root to: 'events#index'
 
   resources :events, only: %i[index show]
