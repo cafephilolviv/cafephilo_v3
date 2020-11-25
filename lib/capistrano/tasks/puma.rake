@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :puma do
   desc "Enable #{fetch(:puma_service_name)} in systemd"
   task :enable do

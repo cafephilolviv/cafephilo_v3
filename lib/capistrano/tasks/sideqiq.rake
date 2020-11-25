@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :sidekiq do
   desc "Enable #{fetch(:sidekick_service)} in systemd"
   task :enable do

@@ -11,24 +11,11 @@ class EmailSubscriptionsController < ApplicationController
 
   def create
     new_sub = EmailSubscription.new(sub_params)
-    if new_sub.valid?
-      new_sub.save!
-      return respond_to do |format|
-        format.json { head :ok }
-        UserMailer.welcome_for_subscriber(new_sub).deliver_later
-      end
-    end
 
-    errors = new_sub.errors.details[:email]
-    if errors.select { |el| el[:error] == :taken }
-      return respond_to do |format|
-        format.json { head :conflict } # e.g. 409
-      end
-    end
+    return if valid_subscrition?(new_sub)
+    return if invalid_subscription?(new_sub)
 
-    respond_to do |format|
-      format.json { head :error }
-    end
+    respond_to { |format| format.json { head :error } }
   end
 
   def destroy
@@ -56,5 +43,24 @@ class EmailSubscriptionsController < ApplicationController
   def switch_locale(&action)
     # locale = params[:locale] || I18n.default_locale
     I18n.with_locale(:uk, &action)
+  end
+
+  def valid_subscrition?(new_sub)
+    return unless new_sub.valid?
+
+    new_sub.save!
+    respond_to do |format|
+      format.json { head :ok }
+      UserMailer.welcome_for_subscriber(new_sub).deliver_later
+    end
+  end
+
+  def invalid_subscription?(new_sub)
+    errors = new_sub.errors.details[:email]
+    return unless errors.select { |el| el[:error] == :taken }
+
+    respond_to do |format|
+      format.json { head :conflict } # e.g. 409
+    end
   end
 end
