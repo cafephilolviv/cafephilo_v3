@@ -43,7 +43,7 @@ jobs:
       - name: Set up Ruby
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: 2.6.x
+          ruby-version: 2.6.5
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
@@ -54,6 +54,9 @@ jobs:
           gem install bundler
           bundle install --jobs 4 --retry 3
           yarn install
+      - name: Run Linter
+        run: |
+          bundle exec rubocop app lib spec
       - name: Setup test database
         env:
           RAILS_ENV: test
