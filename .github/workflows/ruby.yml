@@ -72,7 +72,7 @@ jobs:
           CAFEPHILO_V3_DATABASE_TEST_USER: rails_github_actions
           CAFEPHILO_V3_DATABASE_TEST_PASSWORD: postgres
         run: |
-          rake db:create db:migrate
+          bundle exec rake db:create db:migrate
       - name: Run tests
         env:
           CAFEPHILO_V3_DATABASE_TEST_NAME: rails_github_actions_test
