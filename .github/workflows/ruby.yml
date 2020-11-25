@@ -43,7 +43,14 @@ jobs:
       - name: Set up Ruby
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: 2.6.5
+          ruby-version: 2.6
+      - uses: actions/cache@v2
+      - name: setup cache
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
@@ -52,6 +59,7 @@ jobs:
         run: |
           sudo apt-get -yqq install libpq-dev build-essential libcurl4-openssl-dev
           gem install bundler
+          bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
           yarn install
       - name: Run Linter
