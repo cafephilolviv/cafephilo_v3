@@ -38,12 +38,4 @@ namespace :deploy do
       execute 'source ~/.bashrc'
     end
   end
-
-  desc 'Set release'
-  task :set_release do
-    version = Open3.capture2('sentry-cli releases propose-version')[0].chomp
-    system("sentry-cli releases new #{version} -p cafephilo-site")
-    system("sentry-cli releases set-commits --auto #{version}")
-    system("sentry-cli releases deploys #{version} new -e production")
-  end
 end
