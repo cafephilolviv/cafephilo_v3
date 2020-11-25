@@ -18,9 +18,9 @@ main.main
               span.event-date__day
                 = event.date.strftime("%d") 
               span.event-date__month
-                = event.date.strftime("%b") 
+                = event.date.strftime("%b")
           div.col-12.col-lg-6
-            div.cf-philo-row__info.event-row__info
+            div.cf-philo-row__info.event-row__info.event-card{ data-id = event.id }
               h3
                 = event.title
               h4
@@ -37,10 +37,10 @@ main.main
                       li
                         h4
                           = "#{speaker.first_name} #{speaker.last_name}"
-              div.event-row__desc
-                div.event-row__desc-inner
+              div.event-row__desc.event-desc.with-height{ data-card-id = event.id }
+                div.event-row__desc-inner.event-desc-inner
                   = event.description.body.html_safe
-              div.event-row__links.d-flex.justify-content-between
+              div.event-row__links.d-flex.justify-content-between.event-links{ data-card-id = event.id }
                 button.event-row__read-more.read-more.button-with-arrow
                   p.arrow
                     span.arrow__line.arrow__line_left

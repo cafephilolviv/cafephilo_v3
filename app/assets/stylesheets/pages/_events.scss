@@ -58,9 +58,12 @@
   &__desc {
     margin-top: 1em;
     line-height: 21px;
-    height: 125px;
     overflow: hidden;
     @include animate();
+
+    &.with-height {
+      height: 125px;
+    }
   }
 
   &__info {
