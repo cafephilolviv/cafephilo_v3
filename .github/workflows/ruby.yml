@@ -39,13 +39,13 @@ jobs:
          options: --entrypoint redis-server
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Set up Ruby
         uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.6
-      - uses: actions/cache@v2
       - name: setup cache
+        uses: actions/cache@v2
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
