@@ -80,4 +80,5 @@ jobs:
           CAFEPHILO_V3_DATABASE_TEST_PASSWORD: postgres
           PGPORT: ${{ job.services.postgres.ports[5432] }}
           RAILS_ENV: test
-        run: rspec
+        run: |
+          bundle exec rspec
