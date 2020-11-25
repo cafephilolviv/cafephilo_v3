@@ -29,7 +29,6 @@ namespace :deploy do
   before 'deploy', 'deploy:source_env'
   after 'deploy:finished', 'puma:restart'
   after 'deploy:finished', 'sidekiq:restart'
-  after 'deploy:finished', 'deploy:set_release'
 
   desc 'load env vars into session'
   task :source_env do
