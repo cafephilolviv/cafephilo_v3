@@ -2,7 +2,7 @@ Credits for the UI and contribution to project at all to [Ihor Tokaryk](https://
 
 [![builds.sr.ht status](https://builds.sr.ht/~voloyev/cafefilo_v3/.build.yml.svg)](https://builds.sr.ht/~voloyev/cafefilo_v3/.build.yml?)
 
-![Rails](https://github.com/voloyev/cafephilo_v3/workflows/Rails/badge.svg?branch=master)
+![Rails](https://github.com/cafephilolviv/cafephilo_v3/workflows/Rails/badge.svg?branch=master)
 
 # Cafephilo site
 
