@@ -262,7 +262,7 @@ GEM
       yard (~> 0.9.11)
     psych (3.1.0)
     public_suffix (4.0.1)
-    puma (3.12.1)
+    puma (3.12.6)
     pundit (2.1.0)
       activesupport (>= 3.0.0)
     rack (2.2.3)
@@ -512,7 +512,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   pry
   pry-doc
-  puma (~> 3.11)
+  puma (~> 3.12)
   pundit
   rails (~> 6.0.3)
   rails-i18n (~> 6.0.0)
