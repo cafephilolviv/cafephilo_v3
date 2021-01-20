@@ -1,17 +1,3 @@
-GIT
-  remote: https://github.com/rspec/rspec-rails
-  revision: bfa37ce6d6ab80257c48e407042406007c7cb724
-  branch: v4.0.0.beta3
-  specs:
-    rspec-rails (4.0.0.beta3)
-      actionpack (>= 4.2)
-      activesupport (>= 4.2)
-      railties (>= 4.2)
-      rspec-core (~> 3.8)
-      rspec-expectations (~> 3.8)
-      rspec-mocks (~> 3.8)
-      rspec-support (~> 3.8)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -359,6 +345,14 @@ GEM
     rspec-mocks (3.10.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
+    rspec-rails (4.0.2)
+      actionpack (>= 4.2)
+      activesupport (>= 4.2)
+      railties (>= 4.2)
+      rspec-core (~> 3.10)
+      rspec-expectations (~> 3.10)
+      rspec-mocks (~> 3.10)
+      rspec-support (~> 3.10)
     rspec-support (3.10.1)
     rubocop (1.8.1)
       parallel (~> 1.10)
@@ -543,7 +537,7 @@ DEPENDENCIES
   rails_admin (~> 2.0, >= 2.0.2)
   rails_admin-i18n
   redis-namespace
-  rspec-rails!
+  rspec-rails (~> 4.0.2)
   rubocop
   rubocop-rails
   rubocop-rails_config

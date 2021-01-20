@@ -36,3 +36,4 @@ coverage/*
 *.rdb
 tags
 TAGS
+.envrc
