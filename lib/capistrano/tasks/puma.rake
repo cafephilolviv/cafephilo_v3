@@ -35,4 +35,11 @@ namespace :puma do
       execute("systemctl stop #{fetch(:puma_service_name)} --user")
     end
   end
+
+  desc "Status #{fetch(:puma_service_name)} in systemd"
+  task :status do
+    on roles(:app) do
+      execute("systemctl status #{fetch(:puma_service_name)} --user")
+    end
+  end
 end
