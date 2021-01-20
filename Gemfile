@@ -15,7 +15,7 @@ gem 'mini_magick'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.12'
 gem 'pundit'
-gem 'rails', '~> 6.0.3'
+gem 'rails', '~> 6.1.0'
 gem 'redis-namespace'
 gem 'sass-rails', '~> 5'
 gem 'sentry-raven'
@@ -31,7 +31,7 @@ group :development, :test, :staging do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
   gem 'faker'
-  gem 'rspec-rails', git: 'https://github.com/rspec/rspec-rails', branch: 'v4.0.0.beta3'
+  gem 'rspec-rails', '~> 4.0.2'
 end
 
 group :development do
