@@ -31,6 +31,3 @@
 
 en:
   hello: "Hello world"
-  admin:
-    event: "All events"
-    new_event: "New event"
