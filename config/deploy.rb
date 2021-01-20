@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # config valid for current version and patch releases of Capistrano
-lock '~> 3.11.2'
+lock '~> 3.15'
 
 set :application, 'cafephilo_v3'
 set :repo_url, 'git@github.com:cafephilolviv/cafephilo_v3.git'
