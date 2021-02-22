@@ -48,6 +48,9 @@ class EmailSubscriptionsController < ApplicationController
   def valid_subscrition?(new_sub)
     return unless new_sub.valid?
 
+    capcha = verify_recaptcha(action: 'submit_email')
+    return unless capcha
+
     new_sub.save!
     respond_to do |format|
       format.json { head :ok }
