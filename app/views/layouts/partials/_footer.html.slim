@@ -12,4 +12,5 @@ footer.footer
                      url: email_subscriptions_path,
                      method: "post", remote: true) do |f|
           = f.text_field :email, placeholder: "Ваш e-mail"
+          = recaptcha_v3 action: "submit_email"
           = f.submit "Підписатися", class: "button submit", id: 'submit__email'
