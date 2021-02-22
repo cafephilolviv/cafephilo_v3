@@ -16,6 +16,9 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.12'
 gem 'pundit'
 gem 'rails', '~> 6.1.0'
+gem 'rails_admin', '~> 2.0', '>= 2.0.2'
+gem 'rails_admin-i18n'
+gem 'rails-i18n', '~> 6.0.0'
 gem 'redis-namespace'
 gem 'sass-rails', '~> 5'
 gem 'sentry-raven'
@@ -24,9 +27,7 @@ gem 'sitemap_generator'
 gem 'slim'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.x'
-gem 'rails_admin', '~> 2.0', '>= 2.0.2'
-gem 'rails_admin-i18n'
-gem 'rails-i18n', '~> 6.0.0'
+
 group :development, :test, :staging do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
@@ -63,3 +64,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+gem "recaptcha", "~> 5.7"

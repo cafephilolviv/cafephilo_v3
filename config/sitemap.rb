@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "https://www.cafephilo.lviv.ua"
+SitemapGenerator::Sitemap.default_host = 'https://www.cafephilo.lviv.ua'
 
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.

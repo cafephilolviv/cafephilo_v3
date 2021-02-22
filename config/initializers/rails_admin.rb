@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'nested_form/engine'
 require 'nested_form/builder_mixin'
 
@@ -14,7 +16,7 @@ RailsAdmin.config do |config|
   # config.authorize_with :cancancan
 
   ## == Pundit ==
-  #config.authorize_with :pundit
+  # config.authorize_with :pundit
 
   ## == PaperTrail ==
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0

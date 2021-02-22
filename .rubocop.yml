@@ -1,3 +1,15 @@
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+    - 'db/**/*'
+    - 'db/fixtures/**/*'
+    - 'tmp/**/*'
+    - 'bin/**/*'
+    - 'config/**/*'
+
+  NewCops: enable
+
 Layout/LineLength:
   Max: 100
   Enabled: true
@@ -13,3 +25,7 @@ Metrics/BlockLength:
     - 'Rakefile'
     - '**/*.rake'
     - 'spec/**/*.rb'
+    - 'Gemfile.lock'
+    - 'db/**/*'
+    - 'Guardfile'
+    - 'config/**/*'
