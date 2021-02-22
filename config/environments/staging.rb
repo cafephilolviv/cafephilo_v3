@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -8,7 +10,7 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  config.public_file_server.enabled = true#ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.enabled = true # ENV['RAILS_SERVE_STATIC_FILES'].present?
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
 
@@ -22,7 +24,7 @@ Rails.application.configure do
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
 
   config.action_mailer.perform_caching = false
 
@@ -34,8 +36,8 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
+    logger           = ActiveSupport::Logger.new($stdout)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
@@ -44,12 +46,12 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'service.cafephilo.lviv.ua',
-    port:                 587,
-    domain:               'cafephilo.lviv.ua',
-    user_name:            ENV['CAFEPHILO_V3_STAGING_MAIL_USERNAME'],
-    password:             ENV['CAFEPHILO_V3_STAGING_MAIL_PASSWORD'],
-    authentication:       'plain',
+    address: 'service.cafephilo.lviv.ua',
+    port: 587,
+    domain: 'cafephilo.lviv.ua',
+    user_name: ENV['CAFEPHILO_V3_STAGING_MAIL_USERNAME'],
+    password: ENV['CAFEPHILO_V3_STAGING_MAIL_PASSWORD'],
+    authentication: 'plain',
     enable_starttls_auto: true
   }
   config.action_mailer.default_url_options = { host: 'staging.cafephilo.lviv.ua' }
