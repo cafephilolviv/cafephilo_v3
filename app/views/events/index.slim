@@ -46,7 +46,7 @@ main.main
                     span.arrow__line.arrow__line_left
                     span.arrow__line.arrow__line_right
                   | читати більше
-                - if !event.youtube_link.nil? && !event.mixcloud_link.nil?
+                - if !event.youtube_link.nil? || !event.mixcloud_link.nil?
                   ul.d-flex.socials
                     -unless event.youtube_link.empty?
                       li
