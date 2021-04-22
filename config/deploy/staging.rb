@@ -35,6 +35,7 @@ namespace :deploy do
     on roles(:app) do
       execute 'source ~/.profile'
       execute 'source ~/.bashrc'
+      execute 'chruby 3.0.1'
     end
   end
 end

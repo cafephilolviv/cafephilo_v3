@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.6'
+ruby '3.0.1'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
@@ -15,7 +15,7 @@ gem 'mini_magick'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.12'
 gem 'pundit'
-gem 'rails', '~> 6.1.0'
+gem 'rails', '~> 6.1.3'
 gem 'rails_admin', '~> 2.0', '>= 2.0.2'
 gem 'rails_admin-i18n'
 gem 'rails-i18n', '~> 6.0.0'
