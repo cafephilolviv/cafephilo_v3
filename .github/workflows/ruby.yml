@@ -1,12 +1,4 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-# This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
-# For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
-
 name: Rails
-
 on:
   push:
     branches: [ master ]
@@ -31,7 +23,7 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-      # if you need redis
+
       redis:
          image: redis
          ports:
@@ -41,16 +33,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0
-      - name: setup cache
-        uses: actions/cache@v2
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
+          ruby-version: 3.0.1
+          bundler-cache: true
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
