@@ -1,0 +1,10 @@
+main.main
+  = render 'layouts/partials/banner'
+  div data-controller='infinite-scroll' data-action='scroll@window->infinite-scroll#scroll'
+    div.container.cf-philo-list.events-list
+      - if @events.size > 0
+          div data-infinite-scroll-target='entries'
+            = render 'events'
+    div.cf-philo-paginator
+      div.container data-infinite-scroll-target='pagination'
+        = paginate @events
