@@ -7,7 +7,10 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html
       format.json {
-        render json: { entries: render_to_string(partial: 'events', formats: [:html]), pagination: view_context.paginate(@events) }
+        render json: {
+          entries: render_to_string(partial: 'events', formats: [:html]),
+          pagination: view_context.paginate(@events)
+        }
       }
     end
   end
