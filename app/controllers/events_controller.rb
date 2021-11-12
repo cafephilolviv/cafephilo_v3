@@ -6,12 +6,12 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json {
+      format.json do
         render json: {
           entries: render_to_string(partial: 'events', formats: [:html]),
           pagination: view_context.paginate(@events)
         }
-      }
+      end
     end
   end
 end
