@@ -5,6 +5,6 @@ main.main
       - if @events.size > 0
           div data-infinite-scroll-target='entries'
             = render 'events'
-    div.cf-philo-paginator
+    div.cf-philo-paginator.d-none
       div.container data-infinite-scroll-target='pagination'
         = paginate @events
