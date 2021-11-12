@@ -2,10 +2,17 @@ doctype html
 html
   head
     = render 'layouts/partials/meta'
+    link href='/apple-touch-icon.png' rel='apple-touch-icon' sizes='180x180'
+    link href='/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png'
+    link href='/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png'
+    link href='/site.webmanifest' rel='manifest'
+    link color='#5bbad5' href='/safari-pinned-tab.svg' rel='mask-icon'
+    meta content='#2d89ef' name='msapplication-TileColor'
+    meta content='#ffffff' name='theme-color'
     title
       | Cafephilo Lviv | Cafe philosophique Lviv | Філософія Львів
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = stylesheet_link_tag 'application', "https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i&display=swap&subset=cyrillic-ext"
+    = stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i&display=swap&subset=cyrillic-ext'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = render 'layouts/partials/gtag'
   body
