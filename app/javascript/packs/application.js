@@ -21,3 +21,4 @@ require("packs/events")
 
 require("trix")
 require("@rails/actiontext")
+import "controllers"
