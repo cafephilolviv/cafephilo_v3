@@ -320,7 +320,7 @@ GEM
       ffi (~> 1.0)
     recaptcha (5.7.0)
       json
-    redis (4.2.5)
+    redis (4.5.1)
     redis-namespace (1.8.1)
       redis (>= 3.0.4)
     reek (6.0.3)
@@ -428,7 +428,7 @@ GEM
       faraday (>= 1.0)
     sexp_processor (4.15.2)
     shellany (0.0.1)
-    sidekiq (6.2.1)
+    sidekiq (6.4.0)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
