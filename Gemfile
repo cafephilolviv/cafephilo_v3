@@ -8,7 +8,7 @@ ruby '3.0.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'font-awesome-rails'
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
 gem 'jbuilder', '~> 2.7'
 gem 'kaminari'
 gem 'mini_magick'
