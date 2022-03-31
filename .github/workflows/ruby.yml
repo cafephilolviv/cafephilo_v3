@@ -1,7 +1,7 @@
 name: Rails
 on:
   push:
-    branches: [ master ]
+    branches: [ staging ]
   pull_request:
     branches: [ master ]
 
