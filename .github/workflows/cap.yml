@@ -2,7 +2,7 @@ name: Deploy with Capistrano
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -18,5 +18,7 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - uses: miloserdow/capistrano-deploy@master
       with:
-        target: development # Defines the environment that will be used for the deployment
-        deploy_key: ${{ secrets.CAP_SSH_KEY_PASS }} # Name of the variable configured in Settings/Secrets of your github project
+        target: staging
+        deploy_key: ${{ secrets.CAP_SSH_KEY_PASS}}
+        enc_rsa_key_pth: "config/deploy_id_rsa_enc"
+        # ${{secrets.CAP_SSH_KEY_PASS}}
