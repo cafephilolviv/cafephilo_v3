@@ -11,7 +11,6 @@ jobs:
   verify:
     name: Build
     runs-on: ubuntu-latest
-
     services:
       postgres:
         image: postgres:11
@@ -25,13 +24,11 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-
       redis:
          image: redis
          ports:
           - 6379:6379
          options: --entrypoint redis-server
-
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
@@ -71,9 +68,9 @@ jobs:
           RAILS_ENV: test
         run: |
           bundle exec rspec
-
   deploy:
     runs-on: ubuntu-latest
+    needs: verify
     steps:
     - uses: actions/checkout@v2
     - uses: ruby/setup-ruby@v1
