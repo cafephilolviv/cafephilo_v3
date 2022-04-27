@@ -1,9 +1,7 @@
 name: Rails
 on:
-  push:
-    branches: [ staging ]
   pull_request:
-    branches: [ master ]
+    branches: [ staging master ]
 
 jobs:
   verify:
