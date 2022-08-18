@@ -4,6 +4,10 @@ class EventResource < Avo::BaseResource
   self.title = :title
   self.includes = []
 
+  self.search_query = lambda do
+    scope.ransack(id_eq: params[:q], title_cont: params[:q], m: 'or').result(distinct: false)
+  end
+
   field :id, as: :id
   field :title, as: :text
   field :date, as: :date_time
