@@ -67,3 +67,5 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem "recaptcha", "~> 5.7"
+
+gem "ransack", "~> 3.1"
