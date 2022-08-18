@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get '/admin', to: 'admin/dashboard#index', as: 'admin_root'
 
   root to: 'events#index'
-
   resources :events, only: %i[index show]
   resources :about, only: :index
   resources :contacts, only: :index
@@ -17,5 +16,9 @@ Rails.application.routes.draw do
 
   authenticate :user do
     mount Sidekiq::Web => '/sidekiq'
+  end
+
+  authenticate :user do
+    mount Avo::Engine, at: Avo.configuration.root_path
   end
 end

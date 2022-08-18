@@ -37,3 +37,6 @@ coverage/*
 tags
 TAGS
 .envrc
+/pg_upgrade_utility.log
+/pg_upgrade_internal.log
+/pg_upgrade_server.log
