@@ -1,7 +1,7 @@
 # For more information regaring these settings check out our docs https://docs.avohq.io
 Avo.configure do |config|
   ## == Routing ==
-  config.root_path = '/avo'
+  config.root_path = '/admin'
 
   # Where should the user be redirected when visting the `/avo` url
   # config.home_path = nil
