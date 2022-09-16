@@ -5,9 +5,6 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   devise_for :users
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  get '/admin', to: 'admin/dashboard#index', as: 'admin_root'
-
   root to: 'events#index'
   resources :events, only: %i[index show]
   resources :about, only: :index
