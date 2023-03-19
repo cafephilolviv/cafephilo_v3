@@ -90,6 +90,7 @@ jobs:
   deploy_prod:
     runs-on: ubuntu-latest
     needs: verify
+    if: ${{  contains(fromJson('["master"]'), github.ref_name) }}
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
