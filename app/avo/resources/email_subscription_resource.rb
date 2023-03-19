@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EmailSubscriptionResource < Avo::BaseResource
   self.title = :uuid
   self.includes = []
