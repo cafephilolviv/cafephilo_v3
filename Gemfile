@@ -3,21 +3,20 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.1'
+ruby '3.4.6'
 
 gem 'avo'
-gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'font-awesome-rails'
 gem 'image_processing', '~> 1.12'
 gem 'jbuilder', '~> 2.7'
 gem 'kaminari'
 gem 'mini_magick'
-gem 'pg', '>= 0.18', '< 2.0'
+gem 'pg', '~> 1.5'
 gem 'puma', '~> 4.3'
 gem 'pundit'
-gem 'rails', '~> 6.1.7'
-gem 'rails-i18n', '~> 6.0.0'
+gem 'rails', '~> 7.2'
+gem 'rails-i18n'
 gem 'redis-namespace'
 gem 'sass-rails', '~> 5'
 gem 'sentry-raven'
@@ -26,6 +25,19 @@ gem 'sitemap_generator'
 gem 'slim'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.x'
+gem 'nio4r', '~> 2.7.0'
+gem 'msgpack', '~> 1.7'
+gem 'mutex_m'
+gem "base64"
+gem "logger"
+gem "timeout"
+gem "ostruct"
+gem "pathname"
+gem "monitor"
+gem "singleton"
+gem "bigdecimal"
+gem "csv"
+gem "bootsnap", "~> 1.18"
 
 group :development, :test, :staging do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -38,6 +50,7 @@ group :development do
   gem 'annotate'
   gem 'capistrano', '~> 3.11', require: false
   gem 'capistrano-rails', '~> 1.4', require: false
+gem 'capistrano-nvm', require: false
   gem 'guard'
   gem 'guard-bundler', require: false
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
@@ -51,7 +64,6 @@ group :development do
   gem 'rubocop-rails_config'
   gem 'rubocop-rspec'
   gem 'rubycritic'
-  gem 'solargraph'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
@@ -66,4 +78,4 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'recaptcha', '~> 5.7'
 
-gem 'ransack', '~> 3.1'
+gem 'ransack'

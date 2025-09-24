@@ -24,7 +24,9 @@ set :puma_log,          "#{fetch(:socket_path)}/log/puma-#{fetch(:stage)}.log"
 set :stage_log,         "#{fetch(:socket_path)}/log/#{fetch(:stage)}.log"
 set :puma_service_name, 'puma-prod'
 set :sidekick_service,  'sidekiq-prod'
-
+set :nvm_type, :user # or :system, depends on your nvm setup
+set :nvm_node, 'v24.8.0'
+set :nvm_map_bins, %w{node npm yarn rake}
 namespace :deploy do
   before 'deploy', 'deploy:source_env'
   after 'deploy:finished', 'puma:restart'
