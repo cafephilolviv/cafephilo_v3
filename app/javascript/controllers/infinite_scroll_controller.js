@@ -4,7 +4,13 @@ import Rails from '@rails/ujs';
 export default class extends Controller {
   static targets = ["entries", "pagination"]
 
+  initialize() {
+    this.loading = false
+  }
+
   scroll() {
+    if (this.loading) { return }
+
     const next_page = this.paginationTarget.querySelector("a[rel='next']")
     if (next_page == null) { return }
     const bottomMargin = 20;
@@ -22,6 +28,8 @@ export default class extends Controller {
   }
 
   loadMore(url) {
+    this.loading = true
+
     Rails.ajax({
       type: 'GET',
       url: url,
@@ -29,6 +37,9 @@ export default class extends Controller {
       success: (data) => {
         this.entriesTarget.insertAdjacentHTML('beforeend', data.entries)
         this.paginationTarget.innerHTML = data.pagination
+      },
+      complete: () => {
+        this.loading = false
       }
     })
   }
